@@ -209,8 +209,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 /* KEYBOARD PET START */
 
 /* settings */
-#    define MIN_WALK_SPEED      10
-#    define MIN_RUN_SPEED       40
+#    define MIN_WALK_SPEED      30
+#    define MIN_RUN_SPEED       90
 
 /* advanced settings */
 #    define ANIM_FRAME_DURATION 200  // how long each frame lasts in ms
