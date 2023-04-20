@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 170
+#define TAPPING_TERM 180
 
 #undef RGBLED_NUM
 #define RGBLIGHT_EFFECT_BREATHING
