@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
-#define LBRA LSFT(KC_LBRC)
-#define RBRA LSFT(KC_RBRC)
+#define KC_LBRA LSFT(KC_LBRC)
+#define KC_RBRA LSFT(KC_RBRC)
 #define KC_DVORAK DF(_DVORAK)
 #define KC_QWERTY DF(_QWERTY)
 #define KC_GAMING DF(_GAME)
@@ -13,6 +13,7 @@
 #define KC_UNDO LCTL(KC_Z)
 #define KC_REDO LCTL(KC_Y)
 #define KC_CUT LCTL(KC_X)
+#define KC_ALT_ENT MT(MOD_LALT, KC_ENT) 
 
 enum layer_number {
   _DVORAK = 0,
@@ -41,10 +42,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   '  |   ,  |   .  |   P  |   Y  |                    |   F  |   G  |   C  |   R  |   L  |  /   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | LCTL |   A  |   O  |   E  |   U  |   I  |-------.    ,-------|   D  |   H  |   T  |   N  |   S  |  -   |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|   [   |    |  ESC  |------+------+------+------+------+------|
  * |LShift|   ;  |   Q  |   J  |   K  |   X  |-------|    |-------|   B  |   M  |   W  |   V  |   Z  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC | Enter| /LOWER  /       \Raise \  |Space | RGUI | RCTL | 
+ *                   | LAlt | BSPC |ent/alt| /LOWER  /       \Raise \  |Space | RGUI | RCTL | 
  *                   `----------------------------'           '------''--------------------'
  */
 
@@ -52,29 +53,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   QK_GESC,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   KC_TAB,   KC_QUOTE,   KC_COMMA,    KC_DOT,    KC_P,    KC_Y,                     KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLASH,
   KC_LCTL,  KC_A,   KC_O,    KC_E,    KC_U,    KC_I,                     KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_MINUS,
-  KC_LSFT,  KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_LBRC,  KC_RBRC,  KC_B,    KC_M,    KC_W, KC_V,  KC_Z,  KC_RSFT,
-                        KC_LALT, KC_BSPC, KC_ENT, KC_LOWER, KC_RAISE, KC_SPC, KC_RGUI, KC_RCTL
+  KC_LSFT,  KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_LBRC,  KC_ESC,  KC_B,    KC_M,    KC_W, KC_V,  KC_Z,  KC_RSFT,
+                        KC_LALT, KC_BSPC, KC_ALT_ENT, KC_LOWER, KC_RAISE, KC_SPC, KC_RGUI, KC_RCTL
 ),
 
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | BOOT |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  `   |  ~   |  {   |   }  |      |      |                    |      | Pgup |  Up  | Pgdn |      |      |
+ * |      |  `   |  ~   |   {  |  }   |      |                    |      | Pgup |  Up  | Pgdn |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   [  |   ]  |   (  |   )  |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
  * |------+------+------+------+------+------|  Play |    | Next  |------+------+------+------+------+------|
- * |      | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
+ * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC | Enter| /Lower  /       \Raise \  |Space | RGUI | RCTL |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  QK_BOOT, _______, _______, _______, _______, _______,                   _______, _______, _______,_______, _______, _______,
-  KC_GRV,   KC_TILD,   LBRA,   RBRA,   XXXXXXX,   XXXXXXX,                     XXXXXXX,   KC_PGUP,   KC_UP,   KC_PGDN,  XXXXXXX,  XXXXXXX,
+  _______, _______, _______, _______, _______, _______,                   _______, _______, _______,_______, _______, _______,
+  XXXXXXX, KC_GRV,  KC_TILD,  KC_LBRA,   KC_RBRA,   XXXXXXX,                     XXXXXXX,   KC_PGUP,   KC_UP,   KC_PGDN,  XXXXXXX,  XXXXXXX,
   XXXXXXX, KC_LBRC, KC_RBRC,  KC_LPRN, KC_RPRN,  XXXXXXX,                   KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, XXXXXXX,
-  XXXXXXX, KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_REDO, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  QK_BOOT, KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_REDO, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
 ),
 
@@ -108,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |DVORAK|QWERTY| GAME |      |      |-------.    ,-------|      |      |RGBTog|      |      |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
+ * |      |      |      |      |      |      |-------|    |-------|      |      |RGBmod|      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC | Enter| / Lower /       \Raise \  |Space | RGUI | RCTL |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -118,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,                               KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
   XXXXXXX, KC_DVORAK, KC_QWERTY, KC_GAMING, XXXXXXX, XXXXXXX,                   XXXXXXX, RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_MOD, XXXXXXX, XXXXXXX, XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
   ),
 
@@ -132,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
  * | LCTL |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  | Left | Down | Right|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LCTL | LALT |Space | /LCTL   /       \ RAISE\  | Enter|   [  |  -   |
+ *                   | LCTL | LCTL |Space | /LALT   /       \ RAISE\  | Enter|   [  |  -   |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -158,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
  * | LCTL |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  | Left | Down | Right|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LCTL | LALT |Space | /LCTL   /       \RAISE \  |Enter |  [   |  -   |
+ *                   | LCTL | LCTL |Space | /LALT   /       \RAISE \  |Enter |  [   |  -   |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
 
