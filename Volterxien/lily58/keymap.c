@@ -15,6 +15,20 @@
 #define KC_CUT LCTL(KC_X)
 #define KC_ALT_ENT MT(MOD_LALT, KC_ENT) 
 
+//home row mods
+#define KC_A_GUI MT(MOD_LGUI, KC_A)
+#define KC_O_CTL MT(MOD_LCTL, KC_O)
+#define KC_E_SFT MT(MOD_LSFT, KC_E)
+#define KC_U_ALT MT(MOD_LALT, KC_U)
+#define KC_H_ALT MT(MOD_RALT, KC_H)
+#define KC_T_SFT MT(MOD_RSFT, KC_T)
+#define KC_N_CTL MT(MOD_RCTL, KC_N)
+#define KC_S_GUI MT(MOD_RGUI, KC_S)
+
+//Layer tap defs
+#define KC_SPC_RAISE LT(_RAISE, KC_SPC)
+#define KC_ENT_LOWER LT(_LOWER, KC_ENT)
+
 
 enum layer_number {
   _DVORAK = 0,
@@ -56,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_DVORAK] = LAYOUT(
   QK_GESC,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   KC_TAB,   KC_QUOTE,   KC_COMMA,    KC_DOT,    KC_P,    KC_Y,                     KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLASH,
-  KC_LCTL,  KC_A,   KC_O,    KC_E,    KC_U,    KC_I,                     KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_MINUS,
+  KC_LCTL,  KC_A_GUI,   KC_O_CTL,    KC_E_SFT,    KC_U_ALT,    KC_I,           KC_D,    KC_H_ALT,    KC_T_SFT,    KC_N_CTL,    KC_S_GUI, KC_MINUS,
   KC_LSFT,  KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_LBRC,  KC_ESC,  KC_B,    KC_M,    KC_W, KC_V,  KC_Z,  KC_RSFT,
-                        KC_LALT, KC_BSPC, KC_ALT_ENT, KC_LOWER, KC_RAISE, KC_SPC, KC_RGUI, KC_RCTL
+                        KC_LALT, KC_BSPC, KC_ENT_LOWER, KC_DEL, KC_TAB, KC_SPC_RAISE, KC_RGUI, KC_RCTL
 ),
 
 /* LOWER
