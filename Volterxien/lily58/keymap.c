@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 
+//keycode simplification 
 #define KC_LBRA LSFT(KC_LBRC)
 #define KC_RBRA LSFT(KC_RBRC)
 #define KC_DVORAK DF(_DVORAK)
@@ -26,8 +27,8 @@
 #define KC_S_GUI MT(MOD_RGUI, KC_S)
 
 //Layer tap defs
-#define KC_SPC_RAISE LT(_RAISE, KC_SPC)
-#define KC_ENT_LOWER LT(_LOWER, KC_ENT)
+#define KC_TAB_RAISE LT(_RAISE, KC_TAB)
+#define KC_DEL_LOWER LT(_LOWER, KC_DEL)
 
 
 enum layer_number {
@@ -72,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_QUOTE,   KC_COMMA,    KC_DOT,    KC_P,    KC_Y,                     KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLASH,
   KC_LCTL,  KC_A_GUI,   KC_O_CTL,    KC_E_SFT,    KC_U_ALT,    KC_I,           KC_D,    KC_H_ALT,    KC_T_SFT,    KC_N_CTL,    KC_S_GUI, KC_MINUS,
   KC_LSFT,  KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_LBRC,  KC_ESC,  KC_B,    KC_M,    KC_W, KC_V,  KC_Z,  KC_RSFT,
-                        KC_LALT, KC_BSPC, KC_ENT_LOWER, KC_DEL, KC_TAB, KC_SPC_RAISE, KC_RGUI, KC_RCTL
+                        KC_LALT, KC_BSPC, KC_ALT_ENT, KC_DEL_LOWER, KC_TAB_RAISE, KC_SPC, KC_RGUI, KC_RCTL
 ),
 
 /* LOWER

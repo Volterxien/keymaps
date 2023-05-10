@@ -6,7 +6,7 @@ NKRO_ENABLE = no
 AUDIO_ENABLE = no           # Audio output
 SWAP_HANDS_ENABLE = no      # Enable one-hand typing
 CAPS_WORD_ENABLE = yes
-# BOTH_SHIFTS_TURNS_ON_CAPS_WORD = yes
+BOTH_SHIFTS_TURNS_ON_CAPS_WORD = yes
 WPM_ENABLE = yes
 # COMBO_ENABLE = yes
 
