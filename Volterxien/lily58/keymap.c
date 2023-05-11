@@ -34,15 +34,7 @@
 #define KC_ENT_LOWER LT(_LOWER, KC_ENT)
 
 
-enum layer_number {
-  _DVORAK = 0,
-  _GAME,
-  _QWERTY,
-  _LOWER,
-  _RAISE,
-  _ADJUST,
-  _GLOWER
-};
+
 
 
 // const uint16_t PROGMEM esc_combo[] = {KC_TAB, KC_QUOT, COMBO_END};
@@ -226,6 +218,19 @@ void matrix_scan_user(void) {
 }
 
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
+    switch(keycode){
+        case HOME_E:
+        case HOME_T:
+            return TAPPING_TERM - 60;
+        case HOME_A:
+        case HOME_S:
+            return TAPPING_TERM + 40;                                                                         
+        default:
+            return TAPPING_TERM; 
+    }
+
+}
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);

@@ -56,7 +56,19 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#define KC_TAB_RAISE LT(_RAISE, KC_TAB)
+#define KC_SPC_RAISE LT(_RAISE, KC_SPC)
+#define KC_DEL_LOWER LT(_LOWER, KC_DEL)
+#define KC_ENT_LOWER LT(_LOWER, KC_ENT)
+enum layer_number {
+  _DVORAK = 0,
+  _GAME,
+  _QWERTY,
+  _LOWER,
+  _RAISE,
+  _ADJUST,
+  _GLOWER
+};
 /**
  * Handler function for Achordion.
  *
