@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "features/achordion.h"
 
 //keycode simplification 
 #define KC_LBRA LSFT(KC_LBRC)
@@ -17,14 +18,14 @@
 #define KC_ALT_ENT MT(MOD_LALT, KC_ENT) 
 
 //home row mods
-#define KC_A_GUI MT(MOD_LGUI, KC_A)
-#define KC_O_CTL MT(MOD_LCTL, KC_O)
-#define KC_E_SFT MT(MOD_LSFT, KC_E)
-#define KC_U_ALT MT(MOD_LALT, KC_U)
-#define KC_H_ALT MT(MOD_RALT, KC_H)
-#define KC_T_SFT MT(MOD_RSFT, KC_T)
-#define KC_N_CTL MT(MOD_RCTL, KC_N)
-#define KC_S_GUI MT(MOD_RGUI, KC_S)
+#define HOME_A MT(MOD_LGUI, KC_A)
+#define HOME_O MT(MOD_LALT, KC_O)
+#define HOME_E MT(MOD_LSFT, KC_E)
+#define HOME_U MT(MOD_LCTL, KC_U)
+#define HOME_H MT(MOD_RCTL, KC_H)
+#define HOME_T MT(MOD_RSFT, KC_T)
+#define HOME_N MT(MOD_RALT, KC_N)
+#define HOME_S MT(MOD_RGUI, KC_S)
 
 //Layer tap defs
 #define KC_TAB_RAISE LT(_RAISE, KC_TAB)
@@ -73,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_DVORAK] = LAYOUT(
   QK_GESC,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   KC_TAB,   KC_QUOTE,   KC_COMMA,    KC_DOT,    KC_P,    KC_Y,                     KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLASH,
-  KC_LCTL,  KC_A_GUI,   KC_O_CTL,    KC_E_SFT,    KC_U_ALT,    KC_I,           KC_D,    KC_H_ALT,    KC_T_SFT,    KC_N_CTL,    KC_S_GUI, KC_MINUS,
+  KC_LCTL,  HOME_A,   HOME_O,    HOME_E,    HOME_U,    KC_I,           KC_D,    HOME_H,    HOME_T,    HOME_N,    HOME_S, KC_MINUS,
   KC_LSFT,  KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_LBRC,  KC_ESC,  KC_B,    KC_M,    KC_W, KC_V,  KC_Z,  KC_RSFT,
-                        KC_LALT, KC_BSPC, KC_ENT_LOWER, KC_DEL_LOWER, KC_TAB_RAISE, KC_SPC, KC_RGUI, KC_RCTL
+                        KC_LALT, KC_BSPC, KC_ALT_ENT, KC_DEL_LOWER, KC_TAB_RAISE, KC_SPC, KC_RGUI, KC_RCTL
 ),
 
 /* LOWER
@@ -220,7 +221,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-
+void matrix_scan_user(void) {
+  achordion_task();
+}
 
 
 
@@ -443,6 +446,7 @@ bool oled_task_user(void) {
 #endif // OLED_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_achordion(keycode, record)) { return false; }
   switch(keycode){
                 /* KEYBOARD PET STATUS START */
 
