@@ -5,6 +5,11 @@ COMMAND_ENABLE = no         # Commands for debug and configuration
 NKRO_ENABLE = no
 AUDIO_ENABLE = no           # Audio output
 SWAP_HANDS_ENABLE = no      # Enable one-hand typing
+SPACE_CADET_ENABLE = no 
+GRAVE_ESC_ENABLE = no
+MAGIC_ENABLE = no 
+RGBLIGHT_ENABLE = no
+
 CAPS_WORD_ENABLE = yes
 BOTH_SHIFTS_TURNS_ON_CAPS_WORD = yes
 WPM_ENABLE = yes
