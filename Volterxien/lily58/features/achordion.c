@@ -21,6 +21,14 @@
  */
 
 #include "achordion.h"
+enum custom_keycodes{
+//   KC_QWERTY = SAFE_RANGE,
+//   KC_GAMING,
+//   KC_DVORAK
+    KC_TAB_RAISE = SAFE_RANGE,    
+    KC_DEL_LOWER,
+    
+};
 
 // Copy of the `record` and `keycode` args for the current active tap-hold key.
 static keyrecord_t tap_hold_record;
@@ -206,11 +214,20 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
+                                            
+
+
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }                                          
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 // By default, the timeout is 1000 ms for all keys.
-__attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+__attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode){  
+  switch(tap_hold_keycode){
+    case KC_DEL_LOWER:
+    case KC_TAB_RAISE:
+    return 0;
+  } 
   return 1000;
 }
 

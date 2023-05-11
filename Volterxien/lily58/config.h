@@ -47,6 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_VAL_STEP 17
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define IGNORE_MOD_TAP_INTERRUPT 
+#define PERMISSIVE_HOLD
 // #define COMBO_COUNT 1
 
 // Underglow
@@ -55,3 +56,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLED_NUM 14    // Number of LEDs
 #define RGBLIGHT_SLEEP
 */
+
