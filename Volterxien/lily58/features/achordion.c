@@ -225,6 +225,8 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
 __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode){  
   switch(tap_hold_keycode){
     case KC_DEL_LOWER:
+    case KC_ENT_LOWER:
+    case KC_SPC_RAISE:
     case KC_TAB_RAISE:
     return 0;
   } 
