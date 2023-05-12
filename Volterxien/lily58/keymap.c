@@ -55,13 +55,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   '  |   ,  |   .  |   P  |   Y  |                    |   F  |   G  |   C  |   R  |   L  |  /   |
+ * |      |   '  |   ,  |   .  |   P  |   Y  |                    |   F  |   G  |   C  |   R  |   L  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTL |   A  |   O  |   E  |   U  |   I  |-------.    ,-------|   D  |   H  |   T  |   N  |   S  |  -   |
- * |------+------+------+------+------+------|   [   |    |  ESC  |------+------+------+------+------+------|
- * |LShift|   ;  |   Q  |   J  |   K  |   X  |-------|    |-------|   B  |   M  |   W  |   V  |   Z  |RShift|
+ * |      |   A  |   O  |   E  |   U  |   I  |-------.    ,-------|   D  |   H  |   T  |   N  |   S  |      |
+ * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |      |   ;  |   Q  |   J  |   K  |   X  |-------|    |-------|   B  |   M  |   W  |   V  |   Z  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC |ent/alt| /LOWER  /       \Raise \  |Space | RGUI | RCTL | 
+ *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 
@@ -69,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
-  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   KC_LBRC,    KC_ESC, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
+  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   XXXXXXX,    XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
                                     KC_LALT,    KC_BSPC,    E_LOWER,D_LOWER,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
 ),
 
@@ -83,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  Play |    | Next  |------+------+------+------+------+------|
  * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |  \   |  |   |      |  :   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC | Enter| /Lower  /       \Raise \  |Space | RGUI | RCTL |
- *                   |      |      |      |/       /         \      \ |      |      |      |
+ *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
@@ -105,8 +106,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
  * |      |      |  <   |  >   |  =   |      |-------|    |-------|      |   +  |   -  |  /   |   :  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC | Enter| /Lower  /       \Raise \  |Space | RGUI | RCTL |
- *                   |      |      |      |/       /         \      \ |      |      |      |
+ *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 
@@ -121,19 +122,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                    |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
+ * |      |      |      |      |      |      |                    |      |  F1  |  F2  |  F3  |  F4  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |DVORAK|QWERTY| GAME |      |      |-------.    ,-------|      |      |RGBTog|      |      |      |
+ * |      |DVORAK|QWERTY| GAME |      |      |-------.    ,-------|      |  F5  |  F6  |  F7  |  F8  |      |   
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |      |RGBmod|      |      |      |
+ * |      |      |      |      |      |      |-------|    |-------|      |  F9  |  F10 |  F11 | F12  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC | Enter| / Lower /       \Raise \  |Space | RGUI | RCTL |
- *                   |      |      |      |/       /         \      \ |      |      |      |
+ *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_F7,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
   XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_9,    KC_10,   KC_F11,  KC_12,   XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
