@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,    _______,    _______,    _______,    _______,                        _______,    _______,    _______,    _______,    _______,    _______,
   XXXXXXX,  KC_GRV,     KC_TILD,    KC_LBRA,    KC_RBRA,    XXXXXXX,                        XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
   XXXXXXX,  KC_LBRC,    KC_RBRC,    KC_LPRN,    KC_RPRN,    XXXXXXX,                        KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
-  QK_BOOT,  KC_UNDO,    KC_CUT,     KC_COPY,    KC_PASTE,   KC_REDO,    KC_MPLY,    KC_MNXT,XXXXXXX,    KC_BSLS,    KC_PIPE,    XXXXXXX,    KC_COLN,    XXXXXXX,
+  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,    KC_MPLY,    KC_MNXT,XXXXXXX,    KC_BSLS,    KC_PIPE,    XXXXXXX,    KC_COLN,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
@@ -136,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
   XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_9,    KC_10,   KC_F11,  KC_12,   XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
   ),
 
@@ -209,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
-                        KC_LALT, KC_LGUI, KC_ENT, KC_LOWER, KC_RAISE, KC_SPC, KC_BSPC, KC_RGUI
+                        KC_LALT, KC_LGUI, KC_ENT, LOWER, RAISE, KC_SPC, KC_BSPC, KC_RGUI
  )
 
   };
@@ -476,24 +476,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
 
             /* KEYBOARD PET STATUS END */
-    case KC_QWERTY:
-            if (record->event.pressed) {
-                // set_single_persistent_default_layer(_QWERTY);
-                layer_move(_QWERTY);
-            }
-            return false;
-    case KC_GAMING:
-        if (record->event.pressed) {
-            // set_single_persistent_default_layer(_GAME);
-            layer_move(_GAME);
-            }
-            return false;
-    case KC_DVORAK:
-        if  (record->event.pressed) {
-            // set_single_persistent_default_layer(_DVORAK);
-            layer_move(_DVORAK);
-        }
-            return false;
   }
     if (record->event.pressed) {
 
