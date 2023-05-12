@@ -35,8 +35,8 @@
 
 
 const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
-const uint16_t PROGMEM slsh_combo[] = {KC_L, KC_R, COMBO_END};
-const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_S, COMBO_END};
+const uint16_t PROGMEM slsh_combo[] = {KC_C, KC_R, COMBO_END};
+const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(slsh_combo, KC_SLASH),
