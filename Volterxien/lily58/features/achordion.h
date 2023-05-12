@@ -56,10 +56,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define KC_TAB_RAISE LT(_RAISE, KC_TAB)
-#define KC_SPC_RAISE LT(_RAISE, KC_SPC)
-#define KC_DEL_LOWER LT(_LOWER, KC_DEL)
-#define KC_ENT_LOWER LT(_LOWER, KC_ENT)
+#define T_RAISE LT(_RAISE, KC_TAB)
+#define S_RAISE LT(_RAISE, KC_SPC)
+#define D_LOWER LT(_LOWER, KC_DEL)
+#define E_LOWER LT(_LOWER, KC_ENT)
+
 enum layer_number {
   _DVORAK = 0,
   _GAME,

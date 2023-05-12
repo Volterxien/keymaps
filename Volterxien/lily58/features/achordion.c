@@ -224,10 +224,10 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
 // By default, the timeout is 1000 ms for all keys.
 __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode){  
   switch(tap_hold_keycode){
-    case KC_DEL_LOWER:
-    case KC_ENT_LOWER:
-    case KC_SPC_RAISE:
-    case KC_TAB_RAISE:
+    case D_LOWER:
+    case E_LOWER:
+    case S_RAISE:
+    case T_RAISE:
     return 0;
   } 
   return 1000;
