@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
+#include "features/luna.h"
 
 //keycode simplification 
 #define KC_LBRA LSFT(KC_LBRC)
@@ -236,6 +237,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
+
+
 /* KEYBOARD PET START */
 
 /* settings */
@@ -252,8 +255,7 @@ uint32_t anim_timer = 0;
 /* current frame */
 uint8_t current_frame = 0;
 
-/* status variables */
-int   current_wpm = 0;
+int   current_wpm = 0; 
 led_t led_usb_state;
 
 bool isSneaking = false;
@@ -375,6 +377,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 /* KEYBOARD PET END */
 
 
+
 //SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
 #ifdef OLED_ENABLE
 
@@ -486,7 +489,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
     // If you want all combos to be tap-only, just uncomment the next line
-    // return true
+    return true;
 
     // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
     uint16_t key;
@@ -501,6 +504,7 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
         idx += 1;
     }
     return false;
+}
 
 
 bool caps_word_press_user(uint16_t keycode) {

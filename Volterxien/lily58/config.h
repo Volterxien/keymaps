@@ -51,8 +51,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define IGNORE_MOD_TAP_INTERRUPT 
 #define PERMISSIVE_HOLD
-#define COMBO_COUNT 3
-#define COMBO_TERM 35
+#define COMBO_COUNT 4
+#define COMBO_TERM 15
 
 
 // Underglow
