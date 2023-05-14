@@ -56,6 +56,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+
+//Layer tap defs
 #define T_RAISE LT(_RAISE, KC_TAB)
 #define S_RAISE LT(_RAISE, KC_SPC)
 #define D_LOWER LT(_LOWER, KC_DEL)

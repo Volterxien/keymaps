@@ -27,7 +27,6 @@
 #define HOME_N MT(MOD_RALT, KC_N)
 #define HOME_S MT(MOD_RGUI, KC_S)
 
-//Layer tap defs
 
 
 
@@ -37,17 +36,14 @@
 const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM slsh_combo[] = {KC_C, KC_R, COMBO_END};
 const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
+const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(slsh_combo, KC_SLASH),
     COMBO(dsh_combo, KC_MINUS),
+    COMBO(excl_combo, KC_EXLM),
 
 };
-// enum custom_keycodes{
-//   KC_QWERTY = SAFE_RANGE,
-//   KC_GAMING,
-//   KC_DVORAK
-// };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -228,9 +224,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM - 60;
         case HOME_A:
         case HOME_S:
-            return TAPPING_TERM + 40;                                                                         
         case S_RAISE:
-            return TAPPING_TERM + 30;
+            return TAPPING_TERM + 60;                                                                         
         default:
             return TAPPING_TERM; 
     }
@@ -488,6 +483,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
   }
+
+bool get_combo_must_tap(uint16_t index, combo_t *combo) {
+    // If you want all combos to be tap-only, just uncomment the next line
+    // return true
+
+    // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
+    uint16_t key;
+    uint8_t idx = 0;
+    while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {
+        switch (key) {
+            case QK_MOD_TAP...QK_MOD_TAP_MAX:
+            case QK_LAYER_TAP...QK_LAYER_TAP_MAX:
+            case QK_MOMENTARY...QK_MOMENTARY_MAX:
+                return true;
+        }
+        idx += 1;
+    }
+    return false;
 
 
 bool caps_word_press_user(uint16_t keycode) {
