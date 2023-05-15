@@ -502,7 +502,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
 
             /* KEYBOARD PET STATUS END */
-  }
+        case QWERTY:
+            if (record->event.pressed) {
+                // set_single_persistent_default_layer(_QWERTY);
+                layer_move(_QWERTY);
+            }
+            return false;
+        case GAMING:
+            if (record->event.pressed) {
+                // set_single_persistent_default_layer(_GAME);
+                layer_move(_GAME);
+                }
+                return false;
+        case DVORAK:
+            if  (record->event.pressed) {
+                // set_single_persistent_default_layer(_DVORAK);
+                layer_move(_DVORAK);
+            }
+                return false;
+    }
     if (record->event.pressed) {
 
 #ifdef OLED_ENABLE
