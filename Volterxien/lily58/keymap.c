@@ -5,9 +5,9 @@
 //keycode simplification 
 #define KC_LBRA LSFT(KC_LBRC)
 #define KC_RBRA LSFT(KC_RBRC)
-#define DVORAK DF(_DVORAK)
-#define QWERTY DF(_QWERTY)
-#define GAMING DF(_GAME)
+// #define DVORAK DF(_DVORAK)
+// #define QWERTY DF(_QWERTY)
+// #define GAMING DF(_GAME)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GLOWER MO(_GLOWER)
@@ -28,7 +28,11 @@
 #define HOME_N MT(MOD_RALT, KC_N)
 #define HOME_S MT(MOD_RGUI, KC_S)
 
-
+enum CUSTOM_KEYCODES{
+    DVORAK = SAFE_RANGE,
+    QWERTY,
+    GAMING,
+};
 
 
 
