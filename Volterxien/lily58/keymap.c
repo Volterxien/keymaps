@@ -35,8 +35,8 @@
 
 
 const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
-const uint16_t PROGMEM slsh_combo[] = {KC_C, KC_R, COMBO_END};
-const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
+const uint16_t PROGMEM slsh_combo[] = {KC_W, KC_V, COMBO_END};
+const uint16_t PROGMEM dsh_combo[] = {KC_C, KC_R, COMBO_END};
 const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(esc_combo, KC_ESC),
@@ -226,12 +226,33 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case HOME_A:
         case HOME_S:
         case S_RAISE:
-            return TAPPING_TERM + 60;                                                                         
+            return TAPPING_TERM + 65;                                                                         
         default:
             return TAPPING_TERM; 
     }
 
 }
+
+uint16_t get_combo_term(uint16_t index, combo_t *combo) {
+    // decide by combo->keycode
+    switch (combo->keycode) {
+        case KC_ESC:
+            return 50;
+        default:
+            return COMBO_TERM;
+    }
+}
+
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case S_RAISE:
+        case E_LOWER:
+            return 0;
+        default:
+            return QUICK_TAP_TERM;
+    }
+}
+
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
@@ -489,7 +510,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
     // If you want all combos to be tap-only, just uncomment the next line
-    return true;
+    // return true;
 
     // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
     uint16_t key;
