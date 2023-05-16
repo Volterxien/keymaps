@@ -47,7 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //user
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM_PER_KEY
-#define TAPPING_TERM 150
+#define TAPPING_TERM 155
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define IGNORE_MOD_TAP_INTERRUPT 
 #define PERMISSIVE_HOLD

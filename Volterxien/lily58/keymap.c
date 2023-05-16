@@ -228,12 +228,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
     switch(keycode){
         case HOME_E:
         case HOME_T:
-            return TAPPING_TERM - 55;
+            return TAPPING_TERM - 60;
         case HOME_A:
         case HOME_S:   
-            return TAPPING_TERM + 100;
+            return TAPPING_TERM + 95;
         case S_RAISE:
-            return TAPPING_TERM + 85;                                                                         
+            return TAPPING_TERM + 80;                                                                         
         default:
             return TAPPING_TERM; 
     }
@@ -245,6 +245,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (combo->keycode) {
         case KC_ESC:
             return 50;
+        case KC_MINUS:
+            return COMBO_TERM - 10;
         default:
             return COMBO_TERM;
     }
