@@ -32,6 +32,8 @@ enum CUSTOM_KEYCODES{
     DVORAK = SAFE_RANGE,
     QWERTY,
     GAMING,
+    DEL_EOL,
+    BS_SOL,
 };
 
 
@@ -226,12 +228,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
     switch(keycode){
         case HOME_E:
         case HOME_T:
-            return TAPPING_TERM - 60;
+            return TAPPING_TERM - 55;
         case HOME_A:
         case HOME_S:   
-            return TAPPING_TERM + 80;
+            return TAPPING_TERM + 100;
         case S_RAISE:
-            return TAPPING_TERM + 65;                                                                         
+            return TAPPING_TERM + 85;                                                                         
         default:
             return TAPPING_TERM; 
     }
