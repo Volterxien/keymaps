@@ -50,8 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 155
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define IGNORE_MOD_TAP_INTERRUPT 
-#define PERMISSIVE_HOLD
-#define COMBO_COUNT 4
+// #define PERMISSIVE_HOLD
 #define COMBO_TERM 40
 #define QUICK_TAP_TERM_PER_KEY
 

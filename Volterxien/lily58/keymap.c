@@ -1,40 +1,17 @@
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
-#include "features/luna.h"
+#include "keycodes.h"
 
-//keycode simplification 
-#define KC_LBRA LSFT(KC_LBRC)
-#define KC_RBRA LSFT(KC_RBRC)
-// #define DVORAK DF(_DVORAK)
-// #define QWERTY DF(_QWERTY)
-// #define GAMING DF(_GAME)
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
-#define GLOWER MO(_GLOWER)
-#define COPY LCTL(KC_C)
-#define PASTE LCTL(KC_V)
-#define UNDO LCTL(KC_Z)
-#define REDO LCTL(KC_Y)
-#define CUT LCTL(KC_X)
-#define ALT_ENT MT(MOD_LALT, KC_ENT) 
 
-//home row mods
-#define HOME_A MT(MOD_LGUI, KC_A)
-#define HOME_O MT(MOD_LALT, KC_O)
-#define HOME_E MT(MOD_LSFT, KC_E)
-#define HOME_U MT(MOD_LCTL, KC_U)
-#define HOME_H MT(MOD_RCTL, KC_H)
-#define HOME_T MT(MOD_RSFT, KC_T)
-#define HOME_N MT(MOD_RALT, KC_N)
-#define HOME_S MT(MOD_RGUI, KC_S)
-
-enum CUSTOM_KEYCODES{
-    DVORAK = SAFE_RANGE,
-    QWERTY,
-    GAMING,
-    DEL_EOL,
-    BS_SOL,
+enum COMBOS{
+    ESC_COMBO,
+    SLSH_COMBO,
+    DSH_COMBO,
+    EXCL_COMBO,
+    EQL_COMBO,
+    COMBO_LENGTH,
 };
+uint16_t COMBO_LEN = COMBO_LENGTH;
 
 
 
@@ -44,12 +21,13 @@ const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM slsh_combo[] = {KC_W, KC_V, COMBO_END};
 const uint16_t PROGMEM dsh_combo[] = {KC_C, KC_R, COMBO_END};
 const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
-combo_t key_combos[COMBO_COUNT] = {
-    COMBO(esc_combo, KC_ESC),
-    COMBO(slsh_combo, KC_SLASH),
-    COMBO(dsh_combo, KC_MINUS),
-    COMBO(excl_combo, KC_EXLM),
-
+const uint16_t PROGMEM eql_combo[] = {KC_J, KC_Q, COMBO_END};
+combo_t key_combos[] = {
+    [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
+    [SLSH_COMBO] = COMBO(slsh_combo, KC_SLASH),
+    [DSH_COMBO] = COMBO(dsh_combo, KC_MINUS),
+    [EXCL_COMBO] = COMBO(excl_combo, KC_EXLM),
+    [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -125,9 +103,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |  F1  |  F2  |  F3  |  F4  |      |
+ * |      |DVORAK|QWERTY| GAME |      |      |                    |      |  F1  |  F2  |  F3  |  F4  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |DVORAK|QWERTY| GAME |      |      |-------.    ,-------|      |  F5  |  F6  |  F7  |  F8  |      |   
+ * |      |DELEOL|BSSOL | SVIM |      |      |-------.    ,-------|      |  F5  |  F6  |  F7  |  F8  |      |   
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |  F9  |  F10 |  F11 | F12  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -137,8 +115,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
-  XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
+  XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
+  XXXXXXX, DEL_EOL, BS_SOL,  S_VIM, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
   ),
@@ -231,9 +209,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM - 60;
         case HOME_A:
         case HOME_S:   
-            return TAPPING_TERM + 95;
+            return TAPPING_TERM + 35;
         case S_RAISE:
-            return TAPPING_TERM + 80;                                                                         
+            return TAPPING_TERM + 50;                                                                         
         default:
             return TAPPING_TERM; 
     }
@@ -524,6 +502,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_move(_DVORAK);
             }
                 return false;
+        case DEL_EOL:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_DEL));
+            }
+            return false;
+        case BS_SOL:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_DEL));
+            }
+            return false;
+        case S_VIM:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_ENT));
+            }
+            return false;
+        
     }
     if (record->event.pressed) {
 
