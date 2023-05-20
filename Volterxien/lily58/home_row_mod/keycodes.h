@@ -35,4 +35,5 @@ enum CUSTOM_KEYCODES{
     DEL_EOL,
     BS_SOL,
     S_VIM,
+    KC_ARR,
 };

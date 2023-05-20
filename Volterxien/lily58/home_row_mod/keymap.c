@@ -9,6 +9,7 @@ enum COMBOS{
     DSH_COMBO,
     EXCL_COMBO,
     EQL_COMBO,
+    ARR_COMBO,
     COMBO_LENGTH,
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -19,15 +20,18 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM slsh_combo[] = {KC_W, KC_V, COMBO_END};
-const uint16_t PROGMEM dsh_combo[] = {KC_C, KC_R, COMBO_END};
+const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
 const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_J, KC_Q, COMBO_END};
+const uint16_t PROGMEM arr_combo[] = {HOME_A, HOME_O, COMBO_END};
+
 combo_t key_combos[] = {
     [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
     [SLSH_COMBO] = COMBO(slsh_combo, KC_SLASH),
     [DSH_COMBO] = COMBO(dsh_combo, KC_MINUS),
     [EXCL_COMBO] = COMBO(excl_combo, KC_EXLM),
     [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
+    [ARR_COMBO] = COMBO(arr_combo, KC_ARR),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -211,7 +215,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case HOME_S:   
             return TAPPING_TERM + 35;
         case S_RAISE:
-            return TAPPING_TERM + 50;                                                                         
+            return TAPPING_TERM + 55;                                                                         
         default:
             return TAPPING_TERM; 
     }
@@ -224,7 +228,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case KC_ESC:
             return 50;
         case KC_MINUS:
-            return COMBO_TERM - 10;
+            return COMBO_TERM - 20;
         default:
             return COMBO_TERM;
     }
@@ -515,6 +519,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case S_VIM:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_ENT));
+            }
+            return false;
+        case KC_ARR:
+            if (record->event.pressed) {
+                SEND_STRING("->");
             }
             return false;
         
