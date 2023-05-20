@@ -2,16 +2,6 @@
 #include "features/achordion.h"
 #include "keycodes.h"
 
-<<<<<<< HEAD:Volterxien/lily58/home_row_mod/keymap.c
-
-enum COMBOS{
-    ESC_COMBO,
-    SLSH_COMBO,
-    DSH_COMBO,
-    EXCL_COMBO,
-    EQL_COMBO,
-    COMBO_LENGTH,
-=======
 #define KC_LBRA LSFT(KC_LBRC)
 #define KC_RBRA LSFT(KC_RBRC)
 #define KC_DVORAK DF(_DVORAK)
@@ -38,7 +28,6 @@ enum layer_number {
   _RAISE,
   _ADJUST,
   _GLOWER
->>>>>>> master:Volterxien/lily58/keymap.c
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
@@ -77,19 +66,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_DVORAK] = LAYOUT(
-<<<<<<< HEAD:Volterxien/lily58/home_row_mod/keymap.c
-  XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-  XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
-  XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
-  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   XXXXXXX,    XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    KC_LALT,    KC_BSPC,    E_LOWER,D_LOWER,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
-=======
   QK_GESC,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   KC_TAB,   KC_QUOTE,   KC_COMMA,    KC_DOT,    KC_P,    KC_Y,                     KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLASH,
   KC_LCTL,  KC_A,   KC_O,    KC_E,    KC_U,    KC_I,                     KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_MINUS,
   KC_LSFT,  KC_SCLN,   KC_Q,    KC_J,    KC_K,    KC_X, KC_LBRC,  KC_ESC,  KC_B,    KC_M,    KC_W, KC_V,  KC_Z,  KC_RSFT,
                         KC_LALT, KC_BSPC, KC_ALT_ENT, LT(_LOWER, KC_DEL), LT(_RAISE, KC_TAB), KC_SPC, KC_RGUI, KC_RCTL
->>>>>>> master:Volterxien/lily58/keymap.c
 ),
 
 /* LOWER
