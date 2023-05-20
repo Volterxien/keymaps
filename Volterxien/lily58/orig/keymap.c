@@ -1,20 +1,15 @@
 #include QMK_KEYBOARD_H
-#include "features/achordion.h"
-#include "keycodes.h"
 
 #define KC_LBRA LSFT(KC_LBRC)
 #define KC_RBRA LSFT(KC_RBRC)
-#define KC_DVORAK DF(_DVORAK)
-#define KC_QWERTY DF(_QWERTY)
-#define KC_GAMING DF(_GAME)
-#define KC_LOWER MO(_LOWER)
-#define KC_RAISE MO(_RAISE)
-#define KC_GLOWER MO(_GLOWER)
-#define KC_COPY LCTL(KC_C)
-#define KC_PASTE LCTL(KC_V)
-#define KC_UNDO LCTL(KC_Z)
-#define KC_REDO LCTL(KC_Y)
-#define KC_CUT LCTL(KC_X)
+#define LOWER MO(_LOWER)
+#define RAISE MO(_RAISE)
+#define GLOWER MO(_GLOWER)
+#define COPY LCTL(KC_C)
+#define PASTE LCTL(KC_V)
+#define UNDO LCTL(KC_Z)
+#define REDO LCTL(KC_Y)
+#define CUT LCTL(KC_X)
 #define KC_ALT_ENT MT(MOD_LALT, KC_ENT) 
 
 #define KC_ENT_LOWER LT(_LOWER, KC_ENT)
@@ -28,6 +23,25 @@ enum layer_number {
   _RAISE,
   _ADJUST,
   _GLOWER
+};
+
+
+enum CUSTOM_KEYCODES{
+    DVORAK = SAFE_RANGE,
+    QWERTY,
+    GAMING,
+    DEL_EOL,
+    BS_SOL,
+    S_VIM,
+};
+
+enum COMBOS{
+    ESC_COMBO,
+    SLSH_COMBO,
+    DSH_COMBO,
+    EXCL_COMBO,
+    EQL_COMBO,
+    COMBO_LENGTH,
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
@@ -215,25 +229,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-void matrix_scan_user(void) {
-  achordion_task();
-}
 
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
-    switch(keycode){
-        case HOME_E:
-        case HOME_T:
-            return TAPPING_TERM - 60;
-        case HOME_A:
-        case HOME_S:   
-            return TAPPING_TERM + 35;
-        case S_RAISE:
-            return TAPPING_TERM + 50;                                                                         
-        default:
-            return TAPPING_TERM; 
-    }
 
+
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
@@ -247,22 +249,6 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
             return COMBO_TERM;
     }
 }
-
-uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case S_RAISE:
-        case E_LOWER:
-            return 0;
-        default:
-            return QUICK_TAP_TERM;
-    }
-}
-
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
-}
-
 
 
 /* KEYBOARD PET START */
@@ -480,7 +466,6 @@ bool oled_task_user(void) {
 #endif // OLED_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_achordion(keycode, record)) { return false; }
   switch(keycode){
                 /* KEYBOARD PET STATUS START */
 
