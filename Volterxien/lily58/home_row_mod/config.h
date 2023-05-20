@@ -26,6 +26,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+<<<<<<< HEAD:Volterxien/lily58/home_row_mod/config.h
+=======
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 160
+>>>>>>> master:Volterxien/lily58/config.h
 
 #undef RGBLED_NUM
 #define RGBLIGHT_EFFECT_BREATHING
