@@ -10,6 +10,11 @@ enum COMBOS{
     EXCL_COMBO,
     EQL_COMBO,
     ARR_COMBO,
+    // RES1_COMBO,
+    // RES2_COMBO,
+    // RES3_COMBO,
+    // RES4_COMBO,
+
     COMBO_LENGTH,
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -20,10 +25,14 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM slsh_combo[] = {KC_W, KC_V, COMBO_END};
-const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
 const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_J, KC_Q, COMBO_END};
 const uint16_t PROGMEM arr_combo[] = {HOME_A, HOME_O, COMBO_END};
+const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
+// const uint16_t PROGMEM res1_combo[] = {HOME_O, HOME_E, COMBO_END};
+// const uint16_t PROGMEM res2_combo[] = {HOME_E, HOME_U, COMBO_END};
+// const uint16_t PROGMEM res3_combo[] = {HOME_H, HOME_T, COMBO_END};
+// const uint16_t PROGMEM res4_combo[] = {HOME_N, HOME_S, COMBO_END};
 
 combo_t key_combos[] = {
     [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
@@ -66,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |  `   |  ~   |   {  |  }   |      |                    |      | Pgup |  Up  | Pgdn |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   [  |   ]  |   (  |   )  |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
- * |------+------+------+------+------+------|  Play |    | Next  |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |  \   |  |   |      |  :   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
@@ -77,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,    _______,    _______,    _______,    _______,                        _______,    _______,    _______,    _______,    _______,    _______,
   XXXXXXX,  KC_GRV,     KC_TILD,    KC_LBRA,    KC_RBRA,    XXXXXXX,                        XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
   XXXXXXX,  KC_LBRC,    KC_RBRC,    KC_LPRN,    KC_RPRN,    XXXXXXX,                        KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
-  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,    KC_MPLY,    KC_MNXT,XXXXXXX,    KC_BSLS,    KC_PIPE,    XXXXXXX,    KC_COLN,    XXXXXXX,
+  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,    XXXXXXX,    XXXXXXX,XXXXXXX,    KC_BSLS,    KC_PIPE,    XXXXXXX,    KC_COLN,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
@@ -103,6 +112,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_EQL,  XXXXXXX, KC_SPACE, DVORAK,XXXXXXX, KC_PLUS, KC_MINUS,KC_SLASH,KC_COLN, XXXXXXX,
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
+
+/* SYMBOL
+ * ,-----------------------------------------.                    ,-----------------------------------------.
+ * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |   !  |   @  |   #  |   $  |   %  |                    |   ^  |   &  |   *  |  .   |      |      |
+ * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
+ * |      |      |  <   |  >   |  =   |      |-------|    |-------|      |   +  |   -  |  /   |   :  |      |
+ * `-----------------------------------------/       /     \      \-----------------------------------------'
+ *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      |      |      |/       /         \      \  |       |      |      |
+ *                   `----------------------------'           '------''--------------------'
+ */
+
+[_SYMS] = LAYOUT(
+  _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
+  XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
+  XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_DOT,  XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_EQL,  XXXXXXX, KC_SPACE, DVORAK,XXXXXXX, KC_PLUS, KC_MINUS,KC_SLASH,KC_COLN, XXXXXXX,
+                             _______, _______, _______,  _______, _______,  _______, _______, _______
+),
+
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
@@ -439,6 +472,9 @@ void oled_render_layer_state(void) {
             break;
         case _GLOWER:
             oled_write_ln_P(PSTR("Glowr"), false);
+            break;
+        case _SYMS:
+            oled_write_ln_P(PSTR("Syms"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
