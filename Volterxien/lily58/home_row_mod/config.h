@@ -54,6 +54,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define QUICK_TAP_TERM_PER_KEY
 #define COMBO_TERM_PER_COMBO
 #define COMBO_MUST_TAP_PER_COMBO
+#define AUTO_SHIFT_TIMEOUT 80
+#define NO_AUTO_SHIFT_ALPHA
+#define AUTO_SHIFT_REPEAT
 
 
 

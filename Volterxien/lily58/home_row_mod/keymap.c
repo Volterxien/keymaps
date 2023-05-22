@@ -35,14 +35,21 @@ const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
 // const uint16_t PROGMEM res4_combo[] = {HOME_N, HOME_S, COMBO_END};
 
 combo_t key_combos[] = {
-    [ESC_COMBO] = COMBO(esc_combo, KC_ESC),
-    [SLSH_COMBO] = COMBO(slsh_combo, KC_SLASH),
-    [DSH_COMBO] = COMBO(dsh_combo, KC_MINUS),
-    [EXCL_COMBO] = COMBO(excl_combo, KC_EXLM),
-    [EQL_COMBO] = COMBO(eql_combo, KC_EQL),
-    [ARR_COMBO] = COMBO(arr_combo, KC_ARR),
+    [ESC_COMBO]     = COMBO(esc_combo, KC_ESC),
+    [SLSH_COMBO]    = COMBO(slsh_combo, KC_SLASH),
+    [DSH_COMBO]     = COMBO(dsh_combo, KC_MINUS),
+    [EXCL_COMBO]    = COMBO(excl_combo, KC_EXLM),
+    [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
+    [ARR_COMBO]     = COMBO(arr_combo, KC_ARR),
 };
 
+
+/**************************************************************************************************************************************************************************
+ * ************************************************************************************************************************************************************************
+ * **********************************************       KEYMAPS         ***************************************************************************************************
+**************************************************************************************************************************************************************************
+ * ************************************************************************************************************************************************************************
+*/
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* DVORAK
@@ -72,21 +79,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  `   |  ~   |   {  |  }   |      |                    |      | Pgup |  Up  | Pgdn |      |      |
+ * |      |      |  `   |   [  |  ]   |      |                    |      | Pgup |  Up  | Pgdn |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   [  |   ]  |   (  |   )  |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
+ * |      |  :   |  \   |   (  |   )  |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |  \   |  |   |      |  :   |      |
+ * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  _______,  _______,    _______,    _______,    _______,    _______,                        _______,    _______,    _______,    _______,    _______,    _______,
-  XXXXXXX,  KC_GRV,     KC_TILD,    KC_LBRA,    KC_RBRA,    XXXXXXX,                        XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
-  XXXXXXX,  KC_LBRC,    KC_RBRC,    KC_LPRN,    KC_RPRN,    XXXXXXX,                        KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
-  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,    XXXXXXX,    XXXXXXX,XXXXXXX,    KC_BSLS,    KC_PIPE,    XXXXXXX,    KC_COLN,    XXXXXXX,
+  _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
+  XXXXXXX,  XXXXXXX,    KC_GRV,     KC_LBRC,    KC_RBRC,    XXXXXXX,                            XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  KC_COLN,    KC_BSLS,    KC_LPRN,    KC_RPRN,    XXXXXXX,                            KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
+  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
@@ -94,11 +101,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   !  |   @  |   #  |   $  |   %  |                    |   ^  |   &  |   *  |  .   |      |      |
+ * |      |      |      |      |      |      |                    |      |      |   .  |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  <   |  >   |  =   |      |-------|    |-------|      |   +  |   -  |  /   |   :  |      |
+ * |      |      |  <   |  >   |  :   |      |-------|    |-------|      |   =  |   -  |  /   |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
@@ -107,32 +114,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_DOT,  XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, KC_DOT,  XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_EQL,  XXXXXXX, KC_SPACE, DVORAK,XXXXXXX, KC_PLUS, KC_MINUS,KC_SLASH,KC_COLN, XXXXXXX,
-                             _______, _______, _______,  _______, _______,  _______, _______, _______
-),
-
-/* SYMBOL
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   !  |   @  |   #  |   $  |   %  |                    |   ^  |   &  |   *  |  .   |      |      |
- * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  <   |  >   |  =   |      |-------|    |-------|      |   +  |   -  |  /   |   :  |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
- *                   |      |      |      |/       /         \      \  |       |      |      |
- *                   `----------------------------'           '------''--------------------'
- */
-
-[_SYMS] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
-  XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_DOT,  XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_EQL,  XXXXXXX, KC_SPACE, DVORAK,XXXXXXX, KC_PLUS, KC_MINUS,KC_SLASH,KC_COLN, XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_COLN, XXXXXXX, KC_SPACE, DVORAK,   XXXXXXX, KC_EQL,  KC_MINUS,KC_SLASH,XXXXXXX, XXXXXXX,
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 
@@ -239,6 +223,13 @@ void matrix_scan_user(void) {
 }
 
 
+/**************************************************************************************************************************************************************************
+ * ************************************************************************************************************************************************************************
+ * **********************************************       FEATURE MODIFICATION         **************************************************************************************
+**************************************************************************************************************************************************************************
+ * ************************************************************************************************************************************************************************
+*/
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
     switch(keycode){
         case HOME_E:
@@ -248,24 +239,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case HOME_S:   
             return TAPPING_TERM + 35;
         case S_RAISE:
-            return TAPPING_TERM + 55;                                                                         
+            return TAPPING_TERM + 40;                                                                         
         default:
             return TAPPING_TERM; 
     }
 
 }
 
-uint16_t get_combo_term(uint16_t index, combo_t *combo) {
-    // decide by combo->keycode
-    switch (combo->keycode) {
-        case KC_ESC:
-            return 50;
-        case KC_MINUS:
-            return COMBO_TERM - 20;
-        default:
-            return COMBO_TERM;
-    }
-}
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -276,6 +256,104 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
             return QUICK_TAP_TERM;
     }
 }
+
+
+bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_9:
+            return true;
+        default:
+            return false;
+    }
+}
+
+void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_9:
+            register_code16((!shifted) ? KC_9 : KC_DOT);
+            break;
+        default:
+            if (shifted) {
+                add_weak_mods(MOD_BIT(KC_LSFT));
+            }
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
+            register_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
+    }
+}
+
+void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_9:
+            unregister_code16((!shifted) ? KC_9 : KC_DOT);
+            break;
+        default:
+            // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
+            // The IS_RETRO check isn't really necessary here, always using
+            // keycode & 0xFF would be fine.
+            unregister_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
+    }
+}
+
+uint16_t get_combo_term(uint16_t index, combo_t *combo) {
+    // decide by combo->keycode
+    switch (combo->keycode) {
+        case KC_ESC:
+            return 50;
+        case KC_MINUS:
+            return COMBO_TERM - 30;
+        default:
+            return COMBO_TERM;
+    }
+}
+
+bool get_combo_must_tap(uint16_t index, combo_t *combo) {
+    // If you want all combos to be tap-only, just uncomment the next line
+    // return true;
+
+    // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
+    uint16_t key;
+    uint8_t idx = 0;
+    while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {
+        switch (key) {
+            case QK_MOD_TAP...QK_MOD_TAP_MAX:
+            case QK_LAYER_TAP...QK_LAYER_TAP_MAX:
+            case QK_MOMENTARY...QK_MOMENTARY_MAX:
+                return true;
+        }
+        idx += 1;
+    }
+    return false;
+}
+
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        case KC_MINS:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+        case KC_QUOT:
+        case KC_LPRN:
+        case KC_RPRN:
+        case KC_UP:
+        case KC_DOWN:
+        case KC_LEFT:
+        case KC_RIGHT:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
+
+
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -473,9 +551,6 @@ void oled_render_layer_state(void) {
         case _GLOWER:
             oled_write_ln_P(PSTR("Glowr"), false);
             break;
-        case _SYMS:
-            oled_write_ln_P(PSTR("Syms"), false);
-            break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
 
@@ -500,6 +575,14 @@ bool oled_task_user(void) {
     return false;
 }
 #endif // OLED_ENABLE
+
+
+/**************************************************************************************************************************************************************************
+ * ************************************************************************************************************************************************************************
+ * **********************************************        PROCESS RECORD USER         **************************************************************************************
+**************************************************************************************************************************************************************************
+ * ************************************************************************************************************************************************************************
+*/
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_achordion(keycode, record)) { return false; }
@@ -573,51 +656,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
   }
-
-bool get_combo_must_tap(uint16_t index, combo_t *combo) {
-    // If you want all combos to be tap-only, just uncomment the next line
-    // return true;
-
-    // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
-    uint16_t key;
-    uint8_t idx = 0;
-    while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {
-        switch (key) {
-            case QK_MOD_TAP...QK_MOD_TAP_MAX:
-            case QK_LAYER_TAP...QK_LAYER_TAP_MAX:
-            case QK_MOMENTARY...QK_MOMENTARY_MAX:
-                return true;
-        }
-        idx += 1;
-    }
-    return false;
-}
-
-
-bool caps_word_press_user(uint16_t keycode) {
-    switch (keycode) {
-        // Keycodes that continue Caps Word, with shift applied.
-        case KC_A ... KC_Z:
-        case KC_MINS:
-            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
-            return true;
-
-        // Keycodes that continue Caps Word, without shifting.
-        case KC_1 ... KC_0:
-        case KC_BSPC:
-        case KC_DEL:
-        case KC_UNDS:
-        case KC_QUOT:
-        case KC_LPRN:
-        case KC_RPRN:
-        case KC_UP:
-        case KC_DOWN:
-        case KC_LEFT:
-        case KC_RIGHT:
-            return true;
-
-        default:
-            return false;  // Deactivate Caps Word.
-    }
-}
 
