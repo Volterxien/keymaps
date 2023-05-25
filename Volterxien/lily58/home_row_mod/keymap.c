@@ -79,9 +79,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |  `   |   [  |  ]   |      |                    |      | Pgup |  Up  | Pgdn |      |      |
+ * |      |      |      |      |      |      |                    |      | Pgup |  Up  | Pgdn |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  :   |  \   |   (  |   )  |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
+ * |      |      |      |      |      |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -91,8 +91,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT(
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
-  XXXXXXX,  XXXXXXX,    KC_GRV,     KC_LBRC,    KC_RBRC,    XXXXXXX,                            XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
-  XXXXXXX,  KC_COLN,    KC_BSLS,    KC_LPRN,    KC_RPRN,    XXXXXXX,                            KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
   QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
@@ -663,14 +663,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode){
                 /* KEYBOARD PET STATUS START */
 
-        case KC_LCTL:
-        case KC_RCTL:
-            if (record->event.pressed) {
-                isSneaking = true;
-            } else {
-                isSneaking = false;
-            }
-            break;
+
         case KC_SPC:
             if (record->event.pressed) {
                 isJumping  = true;
