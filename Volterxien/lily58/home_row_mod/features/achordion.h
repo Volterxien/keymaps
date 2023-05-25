@@ -61,7 +61,7 @@ extern "C" {
 //Layer tap defs
 #define T_RAISE LT(_RAISE, KC_TAB)
 #define S_RAISE LT(_RAISE, KC_SPC)
-#define D_LOWER LT(_LOWER, KC_DEL)
+#define D_SYMS LT(_SYMS, KC_DEL)
 #define E_LOWER LT(_LOWER, KC_ENT)
 
 enum layer_number {
@@ -71,6 +71,7 @@ enum layer_number {
   _LOWER,
   _RAISE,
   _ADJUST,
+  _SYMS,
   _GLOWER
 };
 /**

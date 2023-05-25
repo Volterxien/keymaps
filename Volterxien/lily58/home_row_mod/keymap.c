@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
   XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   XXXXXXX,    XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    KC_LALT,    KC_BSPC,    E_LOWER,D_LOWER,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
+                                    KC_LALT,    KC_BSPC,    E_LOWER,D_SYMS,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
 ),
 
 /* LOWER
@@ -142,6 +142,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              _______, _______, _______, _______, _______,  _______, _______, _______
   ),
 
+/* SYMS
+ * ,-----------------------------------------.                    ,-----------------------------------------.
+ * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |      |      |      |      |      |                    |      |  [   |  ]   |   `  |      |      |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |      |      |      |      |      |-------.    ,-------|      |  (   |  )   |  :   |  \   |      |
+ * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
+ * `-----------------------------------------/       /     \      \-----------------------------------------'
+ *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      |      |      |/       /         \      \  |       |      |      |
+ *                   `----------------------------'           '------''--------------------'
+ */
+[_SYMS] = LAYOUT(
+  _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_LBRC,    KC_RBRC,    KC_GRV,     XXXXXXX,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_LPRN,    KC_RPRN,    KC_COLN,    KC_BSLS,    XXXXXXX,
+  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+                                    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
+),
+
+
+
 /* GAME
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  B   |
@@ -165,8 +189,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_LCTL, KC_LALT, KC_SPC, KC_LCTL, RAISE,   KC_ENT,  KC_RBRC, KC_MINS
 
   ),
-
-
 
  /* GLOWER
 * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -234,10 +256,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
     switch(keycode){
         case HOME_E:
         case HOME_T:
-            return TAPPING_TERM - 60;
+            return TAPPING_TERM - 65;
         case HOME_A:
         case HOME_S:   
-            return TAPPING_TERM + 35;
+            return TAPPING_TERM + 30;
         case S_RAISE:
             return TAPPING_TERM + 40;                                                                         
         default:
@@ -251,12 +273,24 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case S_RAISE:
         case E_LOWER:
+        case D_SYMS:
             return 0;
         default:
             return QUICK_TAP_TERM;
     }
 }
 
+uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_1:
+        case KC_5:
+        case KC_6:
+        case KC_0:
+            return AUTO_SHIFT_TIMEOUT + 10;
+        default:
+            return get_generic_autoshift_timeout();
+    }
+}
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
@@ -463,7 +497,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
         current_frame = (current_frame + 1) % 2;
 
         /* current status */
-        if (led_usb_state.caps_lock) {
+        if (led_usb_state.caps_lock || is_caps_word_on()) {
             oled_write_raw_P(bark[current_frame], ANIM_SIZE);
 
         } else if (isSneaking) {
@@ -499,7 +533,36 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 /* KEYBOARD PET END */
 
+void print_mods(void){
+    uint8_t mod_state = get_mods();
+    if (mod_state & MOD_MASK_CTRL){
+        oled_write("C", false);
+    }
+    else{
+        oled_write(" ", false);
+    }
 
+    if (mod_state & MOD_MASK_SHIFT){
+        oled_write("S", false);
+    }
+    else{
+        oled_write(" ", false);
+    }
+
+    if (mod_state & MOD_MASK_ALT){
+        oled_write("A", false);
+    }
+    else{
+        oled_write(" ", false);
+    }
+
+    if (mod_state & MOD_MASK_GUI){
+        oled_write("G", false);
+    }
+    else{
+        oled_write(" ", false);
+    }
+}
 
 //SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
 #ifdef OLED_ENABLE
@@ -528,6 +591,13 @@ const char *read_keylogs(void);
 void oled_render_layer_state(void) {
     // oled_write_P(PSTR("Layer: "), false);
             oled_set_cursor(0,0);
+            if (!(get_mods() & (MOD_MASK_CTRL))){
+                isSneaking = false;
+            }
+            else {
+                isSneaking = true;
+            }
+
     switch (get_highest_layer(layer_state)) {
         case _DVORAK:
             oled_write("Dvork", false);
@@ -548,6 +618,9 @@ void oled_render_layer_state(void) {
         case _ADJUST:
             oled_write_ln_P(PSTR("Adj"), false);
             break;
+        case _SYMS:
+            oled_write_ln_P(PSTR("Syms"), false);
+            break;
         case _GLOWER:
             oled_write_ln_P(PSTR("Glowr"), false);
             break;
@@ -563,6 +636,7 @@ bool oled_task_user(void) {
 
   if (is_keyboard_master()) {
         oled_render_layer_state();
+        print_mods();
         // oled_render_keylog_r2g();
         // oled_write_ln(read_keylog(), false);
         // oled_write_ln(read_keylogs(), false);

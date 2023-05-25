@@ -7,6 +7,7 @@
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GLOWER MO(_GLOWER)
+#define SYMS MO(_SYMS);
 
 //Editing shortcuts
 #define COPY LCTL(KC_C)
