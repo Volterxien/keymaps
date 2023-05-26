@@ -52,28 +52,12 @@
 #pragma once
 
 #include "quantum.h"
+#include "../keycodes.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
-//Layer tap defs
-#define T_RAISE LT(_RAISE, KC_TAB)
-#define S_RAISE LT(_RAISE, KC_SPC)
-#define D_SYMS LT(_SYMS, KC_DEL)
-#define E_LOWER LT(_LOWER, KC_ENT)
-
-enum layer_number {
-  _DVORAK = 0,
-  _GAME,
-  _QWERTY,
-  _LOWER,
-  _RAISE,
-  _ADJUST,
-  _SYMS,
-  _GLOWER
-};
 /**
  * Handler function for Achordion.
  *

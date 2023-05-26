@@ -29,6 +29,27 @@
 #define HOME_N MT(MOD_RALT, KC_N)
 #define HOME_S MT(MOD_RGUI, KC_S)
 
+//Layer tap defs
+#define T_RAISE LT(_RAISE, KC_TAB)
+#define S_RAISE LT(_RAISE, KC_SPC)
+#define D_SYMS LT(_SYMS, KC_DEL)
+#define E_LOWER LT(_LOWER, KC_ENT)
+
+//Custom hold keys
+#define PGU_H LT(0, KC_PGUP)
+#define PGD_E LT(0, KC_PGDN)
+
+enum layer_number {
+  _DVORAK = 0,
+  _GAME,
+  _QWERTY,
+  _LOWER,
+  _RAISE,
+  _ADJUST,
+  _SYMS,
+  _GLOWER
+};
+
 enum CUSTOM_KEYCODES{
     DVORAK = SAFE_RANGE,
     QWERTY,
@@ -37,4 +58,5 @@ enum CUSTOM_KEYCODES{
     BS_SOL,
     S_VIM,
     KC_ARR,
+    KC_BSDL
 };

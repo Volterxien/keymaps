@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
   XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   XXXXXXX,    XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    KC_LALT,    KC_BSPC,    E_LOWER,D_SYMS,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
+                                    KC_LALT,    KC_BSDL,    E_LOWER,D_SYMS,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
 ),
 
 /* LOWER
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT(
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    KC_PGUP,    KC_UP,      KC_PGDN,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    PGU_H,      KC_UP,      PGD_E,      XXXXXXX,    XXXXXXX,
   XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
   QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
-  XXXXXXX, DEL_EOL, BS_SOL,  S_VIM, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
+  XXXXXXX, DEL_EOL, BS_SOL,  S_VIM,   XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
   ),
@@ -206,8 +206,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  */
  [_GLOWER] = LAYOUT(
-  KC_ESC,   KC_F1,   KC_F2,    KC_F3,    KC_F4,    KC_F5,                     KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC, _______,                       _______, _______, _______, _______, _______, _______,
+  KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  _______,                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______,
                             _______,_______, _______, _______,      _______,  _______, _______, _______
@@ -262,6 +262,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM + 30;
         case S_RAISE:
             return TAPPING_TERM + 40;                                                                         
+        case PGD_E:
+        case PGU_H:
+            return TAPPING_TERM - 60;
         default:
             return TAPPING_TERM; 
     }
@@ -335,6 +338,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
             return 50;
         case KC_MINUS:
             return COMBO_TERM - 20;
+        case KC_ARR:
+            return COMBO_TERM - 10;
         default:
             return COMBO_TERM;
     }
@@ -419,6 +424,7 @@ bool isSneaking = false;
 bool isJumping  = false;
 bool showedJump = true;
 
+#ifdef OLED_ENABLE
 /* logic */
 static void render_luna(int LUNA_X, int LUNA_Y) {
     /* Sit */
@@ -534,6 +540,7 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 /* KEYBOARD PET END */
 
 void print_mods(void){
+    oled_set_cursor(0,2);
     uint8_t mod_state = get_mods();
     if (mod_state & MOD_MASK_CTRL){
         oled_write("C", false);
@@ -565,7 +572,6 @@ void print_mods(void){
 }
 
 //SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
-#ifdef OLED_ENABLE
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master())
@@ -674,6 +680,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
 
             /* KEYBOARD PET STATUS END */
+            // try sending tap keycode instead of more intense logic
+        case KC_BSDL:
+            if (record->event.pressed) {
+                uint8_t saved_mods = get_mods() & MOD_MASK_SHIFT;
+
+                if (saved_mods == MOD_MASK_SHIFT) {  // Both shifts pressed
+                    register_code(KC_DEL);
+                } else if (saved_mods) {   // One shift pressed
+                    del_mods(saved_mods);  // Remove any Shifts present
+                    register_code(KC_DEL);
+                    add_mods(saved_mods);  // Add shifts again
+                } else {
+                    register_code(KC_BSPC);
+                }
+                } else {
+                    unregister_code(KC_DEL);
+                    unregister_code(KC_BSPC);
+                }
+            break;
+        case PGD_E:
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(KC_END); // Intercept hold function to send Ctrl-X
+                return false;
+            }
+            return true;             // Return true for normal processing of tap keycode
+        case PGU_H:
+            if (!record->tap.count && record->event.pressed) {
+                tap_code16(KC_HOME); // Intercept hold function to send Ctrl-X
+                return false;
+            }
+            return true;             // Return true for normal processing of tap keycode
+
         case QWERTY:
             if (record->event.pressed) {
                 // set_single_persistent_default_layer(_QWERTY);

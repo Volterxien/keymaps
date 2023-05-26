@@ -228,6 +228,8 @@ __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode){
     case E_LOWER:
     case S_RAISE:
     case T_RAISE:
+    case PGD_E:
+    case PGU_H:
     return 0;
   } 
   return 1000;
