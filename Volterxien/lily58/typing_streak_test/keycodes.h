@@ -38,6 +38,7 @@
 //Custom hold keys
 #define H_PGU LT(0, KC_HOME)
 #define E_PGD LT(0, KC_END)
+#define LT_GT LT(0, KC_LT)
 
 enum layer_number {
   _DVORAK = 0,
@@ -58,5 +59,20 @@ enum CUSTOM_KEYCODES{
     BS_SOL,
     S_VIM,
     KC_ARR,
-    KC_BSDL
+    KC_BSDL,
+};
+
+enum COMBOS{
+    ESC_COMBO,
+    SLSH_COMBO,
+    DSH_COMBO,
+    EXCL_COMBO,
+    EQL_COMBO,
+    ARR_COMBO,
+    // RES1_COMBO,
+    // RES2_COMBO,
+    // RES3_COMBO,
+    // RES4_COMBO,
+
+    COMBO_LENGTH,
 };

@@ -1,22 +1,11 @@
+// TODO  syms remap
+// TODO fix gt_lt
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
 #include "keycodes.h"
 
 
-enum COMBOS{
-    ESC_COMBO,
-    SLSH_COMBO,
-    DSH_COMBO,
-    EXCL_COMBO,
-    EQL_COMBO,
-    ARR_COMBO,
-    // RES1_COMBO,
-    // RES2_COMBO,
-    // RES3_COMBO,
-    // RES4_COMBO,
 
-    COMBO_LENGTH,
-};
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 
@@ -72,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
   XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   XXXXXXX,    XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    KC_LALT,    KC_BSDL,    E_LOWER,D_SYMS,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
+                                    KC_LALT,    KC_BSPC,    E_LOWER,D_SYMS,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
 ),
 
 /* LOWER
@@ -81,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |      |      |      |                    |      | Pgup |  Up  | Pgdn |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
+ * |      |      |      |      |      |      |-------.    ,-------|      | Left | Down | Right|      |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -92,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
   XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    H_PGU,      KC_UP,      E_PGD,      XXXXXXX,    XXXXXXX,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   XXXXXXX,     XXXXXXX,
   QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
@@ -101,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      |   .  |      |      |      |
+ * |      |  /   |  7   |  8   |  9   |  -   |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
+ * |      | </>  |  4   |  5   |  6   |  0   |-------.    ,-------|      |      |      |      |      |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  <   |  >   |  :   |      |-------|    |-------|      |   =  |   -  |  /   |      |      |
+ * |      |      |  1   |  2   |  3   |  =   |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
@@ -114,9 +103,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, KC_DOT,  XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_COLN, XXXXXXX, KC_SPACE, DVORAK,   XXXXXXX, KC_EQL,  KC_MINUS,KC_SLASH,XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINUS,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, LT_GT,   KC_4,    KC_5,    KC_6,    KC_0,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_EQL,     KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 
@@ -681,37 +670,54 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
             /* KEYBOARD PET STATUS END */
             // try sending tap keycode instead of more intense logic
-        case KC_BSDL:
-            if (record->event.pressed) {
-                uint8_t saved_mods = get_mods() & MOD_MASK_SHIFT;
+        // case KC_BSDL:
+        //     if (record->event.pressed) {
+        //         uint8_t saved_mods = get_mods() & MOD_MASK_SHIFT;
 
-                if (saved_mods == MOD_MASK_SHIFT) {  // Both shifts pressed
-                    register_code(KC_DEL);
-                } else if (saved_mods) {   // One shift pressed
-                    del_mods(saved_mods);  // Remove any Shifts present
-                    register_code(KC_DEL);
-                    add_mods(saved_mods);  // Add shifts again
-                } else {
-                    register_code(KC_BSPC);
-                }
-                } else {
-                    unregister_code(KC_DEL);
-                    unregister_code(KC_BSPC);
-                }
-            break;
+        //         if (saved_mods == MOD_MASK_SHIFT) {  // Both shifts pressed
+        //             register_code(KC_DEL);
+        //         } else if (saved_mods) {   // One shift pressed
+        //             del_mods(saved_mods);  // Remove any Shifts present
+        //             register_code(KC_DEL);
+        //             add_mods(saved_mods);  // Add shifts again
+        //         } else {
+        //             register_code(KC_BSPC);
+        //         }
+        //         } else {
+        //             unregister_code(KC_DEL);
+        //             unregister_code(KC_BSPC);
+        //         }
+            // break;
         case E_PGD:
             if (!record->tap.count && record->event.pressed) {
-                tap_code16(KC_PGDN); // Intercept hold function to send Ctrl-X
+                register_code16(KC_PGDN); 
                 return false;
             }
-            return true;             // Return true for normal processing of tap keycode
+            else if (!record->tap.count){
+                unregister_code16(KC_PGDN);
+                return false;
+            }
+            return true;             
         case H_PGU:
             if (!record->tap.count && record->event.pressed) {
-                tap_code16(KC_PGUP); // Intercept hold function to send Ctrl-X
+                register_code16(KC_PGUP); 
                 return false;
             }
-            return true;             // Return true for normal processing of tap keycode
-
+            else if (!record->tap.count){
+                unregister_code16(KC_PGDN);
+                return false;
+            }
+            return true;             
+        case LT_GT:
+            if (!record->tap.count && record->event.pressed) {
+                register_code16(KC_GT); 
+                return false;
+            }
+            else if (!record->tap.count){
+                unregister_code16(KC_GT);
+                return false;
+            }
+            return true;             
         case QWERTY:
             if (record->event.pressed) {
                 // set_single_persistent_default_layer(_QWERTY);
