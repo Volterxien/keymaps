@@ -86,15 +86,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
+
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  /   |  7   |  8   |  9   |  -   |                    |      |      |      |      |      |      |
+ * |      |      | </>  |      |  :   |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      | </>  |  4   |  5   |  6   |  0   |-------.    ,-------|      |      |      |      |      |      |
+ * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  1   |  2   |  3   |  =   |-------|    |-------|      |      |      |      |      |      |
+ * |      |      |      |      |      |      |-------|    |-------|      |   =  |   -  |  /   |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
@@ -103,11 +104,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  XXXXXXX, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINUS,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, LT_GT,   KC_4,    KC_5,    KC_6,    KC_0,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_EQL,     KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, LT_GT,   XXXXXXX, KC_COLN, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPACE, DVORAK,   XXXXXXX, KC_EQL,  KC_MINUS,KC_SLASH,XXXXXXX, XXXXXXX,
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
+// /* RAISE
+//  * ,-----------------------------------------.                    ,-----------------------------------------.
+//  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+//  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+//  * |      |  /   |  7   |  8   |  9   |  -   |                    |      |      |      |      |      |      |
+//  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+//  * |      | </>  |  4   |  5   |  6   |  0   |-------.    ,-------|      |      |      |      |      |      |
+//  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
+//  * |      |      |  1   |  2   |  3   |  =   |-------|    |-------|      |      |      |      |      |      |
+//  * `-----------------------------------------/       /     \      \-----------------------------------------'
+//  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+//  *                   |      |      |      |/       /         \      \  |       |      |      |
+//  *                   `----------------------------'           '------''--------------------'
+//  */
+
+// [_RAISE] = LAYOUT(
+//   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
+//   XXXXXXX, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINUS,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//   XXXXXXX, LT_GT,   KC_4,    KC_5,    KC_6,    KC_0,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//   XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_EQL,     KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//                              _______, _______, _______,  _______, _______,  _______, _______, _______
+// ),
 
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -253,6 +276,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM + 40;                                                                         
         case E_PGD:
         case H_PGU:
+        case LT_GT:
             return TAPPING_TERM - 60;
         default:
             return TAPPING_TERM; 
@@ -717,7 +741,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code16(KC_GT);
                 return false;
             }
-            return true;             
+            else if (record->tap.count && record->event.pressed) {
+                register_code16(KC_LT);
+                return false;
+            }
+            else {
+                unregister_code16(KC_LT);
+                return false;
+            }
         case QWERTY:
             if (record->event.pressed) {
                 // set_single_persistent_default_layer(_QWERTY);
