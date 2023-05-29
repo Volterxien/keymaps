@@ -60,7 +60,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
 
 
-#define BILATERAL_COMBINATIONS_TYPING_STREAK_TIMEOUT 210  /* ms */
+#define BILATERAL_COMBINATIONS_TYPING_STREAK_TIMEOUT 220  /* ms */
 #define BILATERAL_COMBINATIONS_TYPING_STREAK_MODMASK (~MOD_MASK_SHIFT)
 
 
