@@ -18,6 +18,7 @@ const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_J, KC_Q, COMBO_END};
 const uint16_t PROGMEM arr_combo[] = {HOME_A, HOME_O, COMBO_END};
 const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
+const uint16_t PROGMEM noteql_combo[] = {KC_DOT, KC_P, COMBO_END};
 // const uint16_t PROGMEM res1_combo[] = {HOME_O, HOME_E, COMBO_END};
 // const uint16_t PROGMEM res2_combo[] = {HOME_E, HOME_U, COMBO_END};
 // const uint16_t PROGMEM res3_combo[] = {HOME_H, HOME_T, COMBO_END};
@@ -30,6 +31,7 @@ combo_t key_combos[] = {
     [EXCL_COMBO]    = COMBO(excl_combo, KC_EXLM),
     [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
     [ARR_COMBO]     = COMBO(arr_combo, KC_ARR),
+    [NOTEQL_COMBO]  = COMBO(noteql_combo, NOT_EQL)
 };
 
 
@@ -351,16 +353,16 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             register_code16((!shifted) ? KC_5 : KC_AT);
             break;
         case KC_6:
-            register_code16((!shifted) ? KC_6 : KC_PERC);
+            register_code16((!shifted) ? KC_6 : KC_AMPR);
             break;
         case KC_7:
-            register_code16((!shifted) ? KC_7 : KC_HASH);
+            register_code16((!shifted) ? KC_7 : KC_PERC);
             break;
         case KC_8:
             register_code16((!shifted) ? KC_8 : KC_RPRN);
             break;
         case KC_0:
-            register_code16((!shifted) ? KC_0 : KC_AMPR);
+            register_code16((!shifted) ? KC_0 : KC_HASH);
             break;
         default:
             if (shifted) {
@@ -389,16 +391,16 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             unregister_code16((!shifted) ? KC_5 : KC_AT);
             break;
         case KC_6:
-            unregister_code16((!shifted) ? KC_6 : KC_PERC);
+            unregister_code16((!shifted) ? KC_6 : KC_AMPR);
             break;
         case KC_7:
-            unregister_code16((!shifted) ? KC_7 : KC_HASH);
+            unregister_code16((!shifted) ? KC_7 : KC_PERC);
             break;
         case KC_8:
             unregister_code16((!shifted) ? KC_8 : KC_RPRN);
             break;
         case KC_0:
-            unregister_code16((!shifted) ? KC_0 : KC_AMPR);
+            unregister_code16((!shifted) ? KC_0 : KC_HASH);
             break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
@@ -416,6 +418,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case KC_MINUS:
             return COMBO_TERM - 20;
         case KC_ARR:
+        case NOT_EQL:
             return COMBO_TERM - 10;
         default:
             return COMBO_TERM;
@@ -849,6 +852,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_ARR:
             if (record->event.pressed) {
                 SEND_STRING("->");
+            }
+        case NOT_EQL:
+            if (record->event.pressed) {
+                SEND_STRING(" != ");
             }
             return false;
         

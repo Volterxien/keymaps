@@ -60,6 +60,7 @@ enum CUSTOM_KEYCODES{
     S_VIM,
     KC_ARR,
     KC_BSDL,
+    NOT_EQL
 };
 
 enum COMBOS{
@@ -69,6 +70,7 @@ enum COMBOS{
     EXCL_COMBO,
     EQL_COMBO,
     ARR_COMBO,
+    NOTEQL_COMBO,
     // RES1_COMBO,
     // RES2_COMBO,
     // RES3_COMBO,
