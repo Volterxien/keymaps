@@ -93,9 +93,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      | </>  |      |  :   |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
+ * |      |   9  |  5   |  0   |  3   |  7   |-------.    ,-------|   6  |   2  |   1  |   4  |   8  |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |   =  |   -  |  /   |      |      |
+ * |      |      |  /   |  -   |  =   |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
@@ -105,8 +105,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
   XXXXXXX, XXXXXXX, LT_GT,   XXXXXXX, KC_COLN, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPACE, DVORAK,   XXXXXXX, KC_EQL,  KC_MINUS,KC_SLASH,XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_7,                        KC_6,    KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINUS,KC_EQL,  XXXXXXX,  KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 // /* RAISE
@@ -310,7 +310,23 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
-        case KC_9:
+        case KC_1:
+            return true;
+        case KC_2:
+            return true;
+        case KC_3:
+            return true;
+        case KC_4:
+            return true;
+        case KC_5:
+            return true;
+        case KC_6:
+            return true;
+        case KC_7:
+            return true;
+        case KC_8:
+            return true;
+        case KC_0:
             return true;
         default:
             return false;
@@ -319,8 +335,32 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch(keycode) {
-        case KC_9:
-            register_code16((!shifted) ? KC_9 : KC_DOT);
+        case KC_1:
+            register_code16((!shifted) ? KC_1 : KC_ASTR);
+            break;
+        case KC_2:
+            register_code16((!shifted) ? KC_2 : KC_DLR);
+            break;
+        case KC_3:
+            register_code16((!shifted) ? KC_3 : KC_CIRC);
+            break;
+        case KC_4:
+            register_code16((!shifted) ? KC_4 : KC_DOT);
+            break;
+        case KC_5:
+            register_code16((!shifted) ? KC_5 : KC_AT);
+            break;
+        case KC_6:
+            register_code16((!shifted) ? KC_6 : KC_PERC);
+            break;
+        case KC_7:
+            register_code16((!shifted) ? KC_7 : KC_HASH);
+            break;
+        case KC_8:
+            register_code16((!shifted) ? KC_8 : KC_RPRN);
+            break;
+        case KC_0:
+            register_code16((!shifted) ? KC_0 : KC_AMPR);
             break;
         default:
             if (shifted) {
@@ -333,8 +373,32 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch(keycode) {
-        case KC_9:
-            unregister_code16((!shifted) ? KC_9 : KC_DOT);
+        case KC_1:
+            unregister_code16((!shifted) ? KC_1 : KC_ASTR);
+            break;
+        case KC_2:
+            unregister_code16((!shifted) ? KC_3 : KC_DLR);
+            break;
+        case KC_3:
+            unregister_code16((!shifted) ? KC_3 : KC_CIRC);
+            break;
+        case KC_4:
+            unregister_code16((!shifted) ? KC_4 : KC_DOT);
+            break;
+        case KC_5:
+            unregister_code16((!shifted) ? KC_5 : KC_AT);
+            break;
+        case KC_6:
+            unregister_code16((!shifted) ? KC_6 : KC_PERC);
+            break;
+        case KC_7:
+            unregister_code16((!shifted) ? KC_7 : KC_HASH);
+            break;
+        case KC_8:
+            unregister_code16((!shifted) ? KC_8 : KC_RPRN);
+            break;
+        case KC_0:
+            unregister_code16((!shifted) ? KC_0 : KC_AMPR);
             break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
