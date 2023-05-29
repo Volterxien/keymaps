@@ -379,7 +379,7 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             unregister_code16((!shifted) ? KC_1 : KC_ASTR);
             break;
         case KC_2:
-            unregister_code16((!shifted) ? KC_3 : KC_DLR);
+            unregister_code16((!shifted) ? KC_2 : KC_DLR);
             break;
         case KC_3:
             unregister_code16((!shifted) ? KC_3 : KC_CIRC);
