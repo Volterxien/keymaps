@@ -21,12 +21,13 @@ COMBO_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
 MUSIC_ENABLE = no
 AUDIO_ENABLE = no
+DEFERRED_EXEC_ENABLE = yes
 
 # If you want to change the display of OLED, you need to change here
 SRC +=  ./lib/layer_state_reader.c \
         ./lib/logo_reader.c \
         ./lib/keylogger.c \
-        features/achordion.c
+        # features/achordion.c
         #./lib/rgb_state_reader.c \
         # ./lib/mode_icon_reader.c \
         # ./lib/host_led_state_reader.c \
