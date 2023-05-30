@@ -793,7 +793,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             else if (!record->tap.count){
-                unregister_code16(KC_PGDN);
+                unregister_code16(KC_PGUP);
                 return false;
             }
             return true;             
