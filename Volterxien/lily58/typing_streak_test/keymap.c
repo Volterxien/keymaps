@@ -1,7 +1,7 @@
 // TODO  syms remap
 // TODO fix gt_lt
 #include QMK_KEYBOARD_H
-// #include "features/achordion.h"
+#include "features/achordion.h"
 #include "keycodes.h"
 
 
@@ -255,7 +255,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 void matrix_scan_user(void) {
-//   achordion_task();
+  achordion_task();
 }
 
 
@@ -745,7 +745,7 @@ bool oled_task_user(void) {
 */
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // if (!process_achordion(keycode, record)) { return false; }
+    if (!process_achordion(keycode, record)) { return false; }
   switch(keycode){
                 /* KEYBOARD PET STATUS START */
 
