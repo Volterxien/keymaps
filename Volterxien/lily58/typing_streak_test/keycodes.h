@@ -71,10 +71,5 @@ enum COMBOS{
     EQL_COMBO,
     ARR_COMBO,
     NOTEQL_COMBO,
-    // RES1_COMBO,
-    // RES2_COMBO,
-    // RES3_COMBO,
-    // RES4_COMBO,
-
     COMBO_LENGTH,
 };
