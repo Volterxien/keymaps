@@ -3,20 +3,7 @@
 #include "keycodes.h"
 
 
-enum COMBOS{
-    ESC_COMBO,
-    SLSH_COMBO,
-    DSH_COMBO,
-    EXCL_COMBO,
-    EQL_COMBO,
-    ARR_COMBO,
-    // RES1_COMBO,
-    // RES2_COMBO,
-    // RES3_COMBO,
-    // RES4_COMBO,
 
-    COMBO_LENGTH,
-};
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 
@@ -29,6 +16,7 @@ const uint16_t PROGMEM excl_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM eql_combo[] = {KC_J, KC_Q, COMBO_END};
 const uint16_t PROGMEM arr_combo[] = {HOME_A, HOME_O, COMBO_END};
 const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
+const uint16_t PROGMEM noteql_combo[] = {KC_DOT, KC_P, COMBO_END};
 // const uint16_t PROGMEM res1_combo[] = {HOME_O, HOME_E, COMBO_END};
 // const uint16_t PROGMEM res2_combo[] = {HOME_E, HOME_U, COMBO_END};
 // const uint16_t PROGMEM res3_combo[] = {HOME_H, HOME_T, COMBO_END};
@@ -41,6 +29,7 @@ combo_t key_combos[] = {
     [EXCL_COMBO]    = COMBO(excl_combo, KC_EXLM),
     [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
     [ARR_COMBO]     = COMBO(arr_combo, KC_ARR),
+    [NOTEQL_COMBO]  = COMBO(noteql_combo, NOT_EQL)
 };
 
 
@@ -62,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |   ;  |   Q  |   J  |   K  |   X  |-------|    |-------|   B  |   M  |   W  |   V  |   Z  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -71,54 +60,77 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
-  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,   XXXXXXX,    XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    KC_LALT,    KC_BSDL,    E_LOWER,D_SYMS,    T_RAISE,S_RAISE,    KC_RGUI,    KC_RCTL
+  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,     XXXXXXX, XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
+                                    XXXXXXX,    KC_BSPC,    E_LOWER,  D_SYMS,  T_RAISE, S_RAISE,    KC_RGUI,    XXXXXXX
 ),
 
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      | Pgup |  Up  | Pgdn |      |      |
+ * |      | BOOT |      |      |      |      |                    |      |      |  Up  |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------| Home | Left | Down | Right| End  |      |
+ * |      |      |      |      |      |      |-------.    ,-------| Pgup | Left | Down | Right| Pgdn |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
+ * |      | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    PGU_H,      KC_UP,      PGD_E,      XXXXXXX,    XXXXXXX,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            KC_HOME,    KC_LEFT,    KC_DOWN,    KC_RIGHT,   KC_END,     XXXXXXX,
-  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  QK_BOOT,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,      KC_UP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    QK_LEAD,    XXXXXXX,                            H_PGU,      KC_LEFT,    KC_DOWN,    KC_RIGHT,   E_PGD,      XXXXXXX,
+  XXXXXXX,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
+
 
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      |   .  |      |      |      |
+ * |      |      | </>  |      |  :   |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   1  |  2   |  3   |  4   |  5   |-------.    ,-------|   6  |   7  |   8  |   9  |   0  |      |
+ * |      |   9  |  5   |  0   |  3   |  7   |-------.    ,-------|   6  |   2  |   1  |   4  |   8  |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  <   |  >   |  :   |      |-------|    |-------|      |   =  |   -  |  /   |      |      |
+ * |      |      |  /   |  -   |  =   |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, KC_DOT,  XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_LT,   KC_GT,   KC_COLN, XXXXXXX, KC_SPACE, DVORAK,   XXXXXXX, KC_EQL,  KC_MINUS,KC_SLASH,XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, LT_GT,   XXXXXXX, KC_COLN, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_7,                        KC_6,    KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINUS,KC_EQL,  XXXXXXX,  KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
+// /* RAISE
+//  * ,-----------------------------------------.                    ,-----------------------------------------.
+//  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+//  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+//  * |      |  /   |  7   |  8   |  9   |  -   |                    |      |      |      |      |      |      |
+//  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+//  * |      | </>  |  4   |  5   |  6   |  0   |-------.    ,-------|      |      |      |      |      |      |
+//  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
+//  * |      |      |  1   |  2   |  3   |  =   |-------|    |-------|      |      |      |      |      |      |
+//  * `-----------------------------------------/       /     \      \-----------------------------------------'
+//  *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
+//  *                   |      |      |      |/       /         \      \  |       |      |      |
+//  *                   `----------------------------'           '------''--------------------'
+//  */
+
+// [_RAISE] = LAYOUT(
+//   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
+//   XXXXXXX, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINUS,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//   XXXXXXX, LT_GT,   KC_4,    KC_5,    KC_6,    KC_0,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//   XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_EQL,     KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//                              _______, _______, _______,  _______, _______,  _______, _______, _______
+// ),
 
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -139,27 +151,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
   XXXXXXX, DEL_EOL, BS_SOL,  S_VIM,   XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
-                             _______, _______, _______, _______, _______,  _______, _______, _______
+                             _______, _______, _______, _______, _______, _______, _______, _______
   ),
 
 /* SYMS
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |  [   |  ]   |   `  |      |      |
+ * |      |      |      |      |      |      |                    |      |  `   |  [   |  ]   |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      |  (   |  )   |  :   |  \   |      |
+ * |      |      |      |      |      |      |-------.    ,-------|      |  :   |  (   |  )   |  \   |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LAlt | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI | RCTL | 
+ *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_SYMS] = LAYOUT(
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_LBRC,    KC_RBRC,    KC_GRV,     XXXXXXX,    XXXXXXX,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_LPRN,    KC_RPRN,    KC_COLN,    KC_BSLS,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_GRV,     KC_LBRC,    KC_RBRC,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_COLN,    KC_LPRN,    KC_RPRN,    KC_BSLS,    XXXXXXX,
   QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
@@ -210,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  _______,                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______,
-                            _______,_______, _______, _______,      _______,  _______, _______, _______
+                             _______, _______, _______, _______,     _______, _______, _______, _______
  ),
 
  /* QWERTY
@@ -262,8 +274,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM + 30;
         case S_RAISE:
             return TAPPING_TERM + 40;                                                                         
-        case PGD_E:
-        case PGU_H:
+        case E_PGD:
+        case H_PGU:
+        case LT_GT:
             return TAPPING_TERM - 60;
         default:
             return TAPPING_TERM; 
@@ -297,7 +310,23 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
-        case KC_9:
+        case KC_1:
+            return true;
+        case KC_2:
+            return true;
+        case KC_3:
+            return true;
+        case KC_4:
+            return true;
+        case KC_5:
+            return true;
+        case KC_6:
+            return true;
+        case KC_7:
+            return true;
+        case KC_8:
+            return true;
+        case KC_0:
             return true;
         default:
             return false;
@@ -306,8 +335,32 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch(keycode) {
-        case KC_9:
-            register_code16((!shifted) ? KC_9 : KC_DOT);
+        case KC_1:
+            register_code16((!shifted) ? KC_1 : KC_ASTR);
+            break;
+        case KC_2:
+            register_code16((!shifted) ? KC_2 : KC_DLR);
+            break;
+        case KC_3:
+            register_code16((!shifted) ? KC_3 : KC_CIRC);
+            break;
+        case KC_4:
+            register_code16((!shifted) ? KC_4 : KC_DOT);
+            break;
+        case KC_5:
+            register_code16((!shifted) ? KC_5 : KC_AT);
+            break;
+        case KC_6:
+            register_code16((!shifted) ? KC_6 : KC_AMPR);
+            break;
+        case KC_7:
+            register_code16((!shifted) ? KC_7 : KC_PERC);
+            break;
+        case KC_8:
+            register_code16((!shifted) ? KC_8 : KC_RPRN);
+            break;
+        case KC_0:
+            register_code16((!shifted) ? KC_0 : KC_HASH);
             break;
         default:
             if (shifted) {
@@ -320,8 +373,32 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch(keycode) {
-        case KC_9:
-            unregister_code16((!shifted) ? KC_9 : KC_DOT);
+        case KC_1:
+            unregister_code16((!shifted) ? KC_1 : KC_ASTR);
+            break;
+        case KC_2:
+            unregister_code16((!shifted) ? KC_2 : KC_DLR);
+            break;
+        case KC_3:
+            unregister_code16((!shifted) ? KC_3 : KC_CIRC);
+            break;
+        case KC_4:
+            unregister_code16((!shifted) ? KC_4 : KC_DOT);
+            break;
+        case KC_5:
+            unregister_code16((!shifted) ? KC_5 : KC_AT);
+            break;
+        case KC_6:
+            unregister_code16((!shifted) ? KC_6 : KC_AMPR);
+            break;
+        case KC_7:
+            unregister_code16((!shifted) ? KC_7 : KC_PERC);
+            break;
+        case KC_8:
+            unregister_code16((!shifted) ? KC_8 : KC_RPRN);
+            break;
+        case KC_0:
+            unregister_code16((!shifted) ? KC_0 : KC_HASH);
             break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
@@ -339,6 +416,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case KC_MINUS:
             return COMBO_TERM - 20;
         case KC_ARR:
+        case NOT_EQL:
             return COMBO_TERM - 10;
         default:
             return COMBO_TERM;
@@ -392,6 +470,34 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
+void leader_end_user(void) {
+    if (leader_sequence_one_key(KC_A)) {
+         SEND_STRING("->");
+    }
+    if (leader_sequence_one_key(KC_DOT)) {
+        SEND_STRING(" != ");
+    }
+    // save vim
+    if (leader_sequence_one_key(KC_SCLN)) {
+        SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_ENT));
+    }
+    // del eol
+    if (leader_sequence_one_key(KC_DEL)) {
+        SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_DEL));
+    }
+    // del sol
+    if (leader_sequence_one_key(KC_BSPC)) {
+        SEND_STRING(SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_DEL));
+    }
+    // windows screen shot
+    if (leader_sequence_one_key(KC_S)) {
+        SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_S))));
+    }
+    // save + quit vim
+    if (leader_sequence_one_key(KC_Q)) {
+        SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_Q) SS_TAP(X_ENT));
+    }
+}
 
 
 
@@ -681,37 +787,58 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
             /* KEYBOARD PET STATUS END */
             // try sending tap keycode instead of more intense logic
-        case KC_BSDL:
-            if (record->event.pressed) {
-                uint8_t saved_mods = get_mods() & MOD_MASK_SHIFT;
+        // case KC_BSDL:
+        //     if (record->event.pressed) {
+        //         uint8_t saved_mods = get_mods() & MOD_MASK_SHIFT;
 
-                if (saved_mods == MOD_MASK_SHIFT) {  // Both shifts pressed
-                    register_code(KC_DEL);
-                } else if (saved_mods) {   // One shift pressed
-                    del_mods(saved_mods);  // Remove any Shifts present
-                    register_code(KC_DEL);
-                    add_mods(saved_mods);  // Add shifts again
-                } else {
-                    register_code(KC_BSPC);
-                }
-                } else {
-                    unregister_code(KC_DEL);
-                    unregister_code(KC_BSPC);
-                }
-            break;
-        case PGD_E:
+        //         if (saved_mods == MOD_MASK_SHIFT) {  // Both shifts pressed
+        //             register_code(KC_DEL);
+        //         } else if (saved_mods) {   // One shift pressed
+        //             del_mods(saved_mods);  // Remove any Shifts present
+        //             register_code(KC_DEL);
+        //             add_mods(saved_mods);  // Add shifts again
+        //         } else {
+        //             register_code(KC_BSPC);
+        //         }
+        //         } else {
+        //             unregister_code(KC_DEL);
+        //             unregister_code(KC_BSPC);
+        //         }
+            // break;
+        case E_PGD:
             if (!record->tap.count && record->event.pressed) {
-                tap_code16(KC_END); // Intercept hold function to send Ctrl-X
+                register_code16(KC_PGDN); 
                 return false;
             }
-            return true;             // Return true for normal processing of tap keycode
-        case PGU_H:
-            if (!record->tap.count && record->event.pressed) {
-                tap_code16(KC_HOME); // Intercept hold function to send Ctrl-X
+            else if (!record->tap.count){
+                unregister_code16(KC_PGDN);
                 return false;
             }
-            return true;             // Return true for normal processing of tap keycode
-
+            return true;             
+        case H_PGU:
+            if (!record->tap.count && record->event.pressed) {
+                register_code16(KC_PGUP); 
+                return false;
+            }
+            else if (!record->tap.count){
+                unregister_code16(KC_PGUP);
+                return false;
+            }
+            return true;             
+        case LT_GT:
+            if (!record->tap.count && record->event.pressed) {
+                register_code16(KC_GT); 
+            }
+            else if (!record->tap.count){
+                unregister_code16(KC_GT);
+            }
+            else if (record->tap.count && record->event.pressed) {
+                register_code16(KC_LT);
+            }
+            else {
+                unregister_code16(KC_LT);
+            }
+            return false;
         case QWERTY:
             if (record->event.pressed) {
                 // set_single_persistent_default_layer(_QWERTY);
@@ -731,25 +858,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
                 return false;
         case DEL_EOL:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_DEL));
-            }
-            return false;
+            // if (record->event.pressed) {
+                // SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_DEL));
+            // }
+            // return false;
         case BS_SOL:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_DEL));
-            }
-            return false;
+            // if (record->event.pressed) {
+                // SEND_STRING(SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_DEL));
+            // }
+            // return false;
         case S_VIM:
-            if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_ENT));
-            }
-            return false;
+            // if (record->event.pressed) {
+                // SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_ENT));
+            // }
+            // return false;
         case KC_ARR:
-            if (record->event.pressed) {
-                SEND_STRING("->");
-            }
-            return false;
+            // if (record->event.pressed) {
+                // SEND_STRING("->");
+            // }
+            // return false;
+        case NOT_EQL:
+            // if (record->event.pressed) {
+                // SEND_STRING(" != ");
+            // }
+            // return false;
+            break;
         
     }
     if (record->event.pressed) {

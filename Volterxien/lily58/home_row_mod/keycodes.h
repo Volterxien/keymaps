@@ -36,8 +36,11 @@
 #define E_LOWER LT(_LOWER, KC_ENT)
 
 //Custom hold keys
-#define PGU_H LT(0, KC_PGUP)
-#define PGD_E LT(0, KC_PGDN)
+#define H_PGU LT(0, KC_HOME)
+#define E_PGD LT(0, KC_END)
+#define LT_GT LT(0, KC_LT)
+
+//Macros
 
 enum layer_number {
   _DVORAK = 0,
@@ -58,5 +61,17 @@ enum CUSTOM_KEYCODES{
     BS_SOL,
     S_VIM,
     KC_ARR,
-    KC_BSDL
+    KC_BSDL,
+    NOT_EQL
+};
+
+enum COMBOS{
+    ESC_COMBO,
+    SLSH_COMBO,
+    DSH_COMBO,
+    EXCL_COMBO,
+    EQL_COMBO,
+    ARR_COMBO,
+    NOTEQL_COMBO,
+    COMBO_LENGTH,
 };
