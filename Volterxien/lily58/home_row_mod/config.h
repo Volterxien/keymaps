@@ -58,7 +58,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_AUTO_SHIFT_ALPHA
 #define AUTO_SHIFT_REPEAT
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
-#define LEADER_TIMEOUT 350
+#define LEADER_TIMEOUT 100
+#define LEADER_NO_TIMEOUT
 
 
 // #define BILATERAL_COMBINATIONS

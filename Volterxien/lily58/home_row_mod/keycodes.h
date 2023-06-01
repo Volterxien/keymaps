@@ -32,8 +32,8 @@
 //Layer tap defs
 #define T_RAISE LT(_RAISE, KC_TAB)
 #define S_RAISE LT(_RAISE, KC_SPC)
-#define D_SYMS LT(_SYMS, KC_DEL)
-#define E_LOWER LT(_LOWER, KC_ENT)
+#define E_SYMS LT(_SYMS, KC_ENT)
+#define BS_LOWER LT(_LOWER, KC_BSPC)
 
 //Custom hold keys
 #define H_PGU LT(0, KC_HOME)
