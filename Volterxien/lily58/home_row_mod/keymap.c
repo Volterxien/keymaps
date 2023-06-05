@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
   XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,     XXXXXXX, XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    XXXXXXX,    KC_DEL,     BS_LOWER, E_SYMS,  T_RAISE, S_RAISE,    KC_RGUI,    XXXXXXX
+                                    XXXXXXX,    KC_DEL,     E_LOWER, BS_SYMS,  T_RAISE, S_RAISE,    KC_RGUI,    XXXXXXX
 ),
 
 /* LOWER
@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |DVORAK|QWERTY| GAME |      |      |                    |      |  F1  |  F2  |  F3  |  F4  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |DELEOL|BSSOL | SVIM |      |      |-------.    ,-------|      |  F5  |  F6  |  F7  |  F8  |      |   
+ * |      |      |      |      |      |      |-------.    ,-------|      |  F5  |  F6  |  F7  |  F8  |      |   
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |  F9  |  F10 |  F11 | F12  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
-  XXXXXXX, DEL_EOL, BS_SOL,  S_VIM,   XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
                              _______, _______, _______, _______, _______, _______, _______, _______
   ),
@@ -289,6 +289,8 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case S_RAISE:
         case BS_LOWER:
+        case E_LOWER:
+        case BS_SYMS:
         case E_SYMS:
             return 0;
         default:
