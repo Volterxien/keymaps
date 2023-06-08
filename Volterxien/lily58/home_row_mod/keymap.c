@@ -472,6 +472,47 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
+
+//sel line:
+//#define SEL_LINE_MACRO (SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END)))
+//#define COPY_LINE_MACRO (SEL_LINE_MACRO SS_LCTRL(SS_TAP(X_C)))
+//#define DEL_LINE_MACRO (COPY_LINE_MACRO SS_TAP(X_DEL))
+//#define NEW_LINE_MACRO (SS_TAP(X_END) SS_TAP(X_ENT))
+//el (select line)
+//SEND_STRING(SEL_LINE_MACRO);
+//
+//yy (copy line)
+//SEND_STRING(COPY_LINE_MACRO);
+//
+//dd (copy and delete line)
+//SEND_STRING(DEL_LINE_MACRO);
+//
+//o (new line)
+//SEND_STRING(NEW_LINE_MACRO);
+//
+//wrap word ()
+//SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) ")");
+//
+//wrap selection ()
+//SEND_STRING(SS_LCTL(SS_TAP(X_X)) "()" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
+//
+//wrap word []
+//SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) "]");
+//
+//wrap selection []
+//SEND_STRING(SS_LCTL(SS_TAP(X_X)) "[]" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
+//
+//wrap word {}
+//SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) "}");
+//
+//wrap selection {}
+//SEND_STRING(SS_LCTL(SS_TAP(X_X)) "{}" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT))
+//
+//lte
+//SEND_STRING(" <= ");
+//
+//gte
+//SEND_STRING(" >= ");
 void leader_end_user(void) {
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
