@@ -504,6 +504,19 @@ void leader_end_user(void) {
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+    /*
+    layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _LAYER1:
+            autoshift_enable();
+            break;
+        default:
+            autoshift_disable();
+            break;
+    }
+    return state;
+}   
+*/
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
