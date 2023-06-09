@@ -2,13 +2,7 @@
 #include "features/achordion.h"
 #include "keycodes.h"
 
-
-
 uint16_t COMBO_LEN = COMBO_LENGTH;
-
-
-
-
 
 const uint16_t PROGMEM esc_combo[] = {KC_COMMA, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM slsh_combo[] = {KC_W, KC_V, COMBO_END};
@@ -32,6 +26,10 @@ combo_t key_combos[] = {
     [NOTEQL_COMBO]  = COMBO(noteql_combo, NOT_EQL)
 };
 
+#define SEL_LINE_MACRO SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END))
+#define COPY_LINE_MACRO SEL_LINE_MACRO SS_LCTL(SS_TAP(X_C))
+#define DEL_LINE_MACRO (COPY_LINE_MACRO SS_TAP(X_DEL))
+#define NEW_LINE_MACRO (SS_TAP(X_END) SS_TAP(X_ENT))
 
 /**************************************************************************************************************************************************************************
  * ************************************************************************************************************************************************************************
@@ -61,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
   XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,     XXXXXXX, XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    XXXXXXX,    KC_DEL,     E_LOWER, BS_SYMS,  T_RAISE, S_RAISE,    KC_RGUI,    XXXXXXX
+                                    XXXXXXX,    KC_DEL,     BS_LOWER, E_SYMS,  T_RAISE, KC_SPC,    KC_RGUI,    XXXXXXX
 ),
 
 /* LOWER
@@ -473,46 +471,31 @@ bool caps_word_press_user(uint16_t keycode) {
 }
 
 
-//sel line:
-//#define SEL_LINE_MACRO (SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END)))
-//#define COPY_LINE_MACRO (SEL_LINE_MACRO SS_LCTRL(SS_TAP(X_C)))
-//#define DEL_LINE_MACRO (COPY_LINE_MACRO SS_TAP(X_DEL))
-//#define NEW_LINE_MACRO (SS_TAP(X_END) SS_TAP(X_ENT))
-//el (select line)
-//SEND_STRING(SEL_LINE_MACRO);
-//
-//yy (copy line)
-//SEND_STRING(COPY_LINE_MACRO);
-//
-//dd (copy and delete line)
-//SEND_STRING(DEL_LINE_MACRO);
-//
-//o (new line)
-//SEND_STRING(NEW_LINE_MACRO);
-//
-//wrap word ()
-//SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) ")");
-//
-//wrap selection ()
-//SEND_STRING(SS_LCTL(SS_TAP(X_X)) "()" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
-//
-//wrap word []
-//SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) "]");
-//
-//wrap selection []
-//SEND_STRING(SS_LCTL(SS_TAP(X_X)) "[]" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
-//
-//wrap word {}
-//SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) "}");
-//
-//wrap selection {}
-//SEND_STRING(SS_LCTL(SS_TAP(X_X)) "{}" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT))
-//
-//lte
-//SEND_STRING(" <= ");
-//
-//gte
-//SEND_STRING(" >= ");
+// sel line:
+// //el (select line)
+// SEND_STRING(SEL_LINE_MACRO);
+
+// yy (copy line)
+
+// dd (copy and delete line)
+
+// o (new line)
+
+// wrap word ()
+
+// wrap selection ()
+
+// wrap word []
+
+// wrap selection []
+
+// wrap word {}
+
+// wrap selection {}
+
+// lte
+
+// gte
 void leader_end_user(void) {
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
@@ -540,24 +523,65 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_S)) {
         SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_S))));
     }
+    // Copy line
+    if (leader_sequence_two_keys(KC_Y, KC_Y)){
+        SEND_STRING(COPY_LINE_MACRO);
+    }
+    // Copy + del line
+    if (leader_sequence_two_keys(KC_D, KC_D)){
+        SEND_STRING(DEL_LINE_MACRO);
+    }
+    // New line
+    if (leader_sequence_one_key(KC_O)){
+        SEND_STRING(NEW_LINE_MACRO);
+    }
+    // wrap word ()
+    if (leader_sequence_one_key(KC_P)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) ")");
+    }
+    // wrap selection ()
+    if (leader_sequence_two_keys(KC_P, KC_P)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) "()" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
+    }
+    // wrap word []
+    if (leader_sequence_one_key(KC_B)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) "]");
+    }
+    // wrap selection []
+    if (leader_sequence_two_keys(KC_B, KC_B)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) "[]" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
+    }
+    // wrap word {}
+    if (leader_sequence_one_key(KC_C)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) "}");
+    }
+    // wrap selection {}
+    if (leader_sequence_two_keys(KC_C, KC_C)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_X)) "{}" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
+    }
+    // GTE
+    if (leader_sequence_one_key(KC_G)){
+        SEND_STRING(" >= ");
+    }
+    // LTE
+    if (leader_sequence_one_key(KC_L)){
+        SEND_STRING(" <= ");
+    }
+
+
 }
 
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    /*
-    layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-        case _LAYER1:
-            autoshift_enable();
-            break;
-        default:
+        case _GAME:
             autoshift_disable();
             break;
+        default:
+            autoshift_enable();
+            break;
     }
-    return state;
-}   
-*/
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
@@ -704,34 +728,17 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 void print_mods(void){
     oled_set_cursor(0,2);
     uint8_t mod_state = get_mods();
-    if (mod_state & MOD_MASK_CTRL){
-        oled_write("C", false);
-    }
-    else{
-        oled_write(" ", false);
-    }
-
-    if (mod_state & MOD_MASK_SHIFT){
-        oled_write("S", false);
-    }
-    else{
-        oled_write(" ", false);
-    }
-
-    if (mod_state & MOD_MASK_ALT){
-        oled_write("A", false);
-    }
-    else{
-        oled_write(" ", false);
-    }
-
-    if (mod_state & MOD_MASK_GUI){
-        oled_write("G", false);
-    }
-    else{
-        oled_write(" ", false);
-    }
+    mod_state & MOD_MASK_CTRL ? oled_write("C", false) : oled_write(" ", false);
+    mod_state & MOD_MASK_SHIFT ? oled_write("S", false) : oled_write(" ", false);
+    mod_state & MOD_MASK_ALT ? oled_write("A", false) : oled_write(" ", false);
+    mod_state & MOD_MASK_GUI ? oled_write("G", false) : oled_write(" ", false);
 }
+
+void print_leader_status(void) {
+    oled_set_cursor(0,4);
+    leader_sequence_active() ? oled_write("L", false) : oled_write(" ", false);
+}
+        
 
 //SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
 
@@ -789,11 +796,9 @@ void oled_render_layer_state(void) {
         case _SYMS:
             oled_write_ln_P(PSTR("Syms"), false);
             break;
-        case _GLOWER:
-            oled_write_ln_P(PSTR("Glowr"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("Undef"), false);
+        // case _GLOWER:
+        //     oled_write_ln_P(PSTR("Glowr"), false);
+        //     break;
 
     }
 }
@@ -805,6 +810,7 @@ bool oled_task_user(void) {
   if (is_keyboard_master()) {
         oled_render_layer_state();
         print_mods();
+        print_leader_status();
         // oled_render_keylog_r2g();
         // oled_write_ln(read_keylog(), false);
         // oled_write_ln(read_keylogs(), false);
