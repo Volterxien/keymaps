@@ -91,9 +91,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      | </>  |      |  :   |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   9  |  5   |  0   |  3   |  7   |-------.    ,-------|   6  |   2  |   1  |   4  |   8  |      |
+ * |      |   9  |  5   |  0   |  3   |  =   |-------.    ,-------|TG_RAI|  2   |  1   |  4   |  8   |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  /   |  -   |  =   |      |-------|    |-------|      |      |      |      |      |      |
+ * |      |      |  /   |  -   |  7   |      |-------|    |-------|      |  6   |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
@@ -103,8 +103,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
   XXXXXXX, XXXXXXX, LT_GT,   XXXXXXX, KC_COLN, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_7,                        KC_6,    KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINUS,KC_EQL,  XXXXXXX,  KC_SPACE, DVORAK,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+  XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_EQL,                      TG_RAI,  KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
+  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINUS,KC_7,    XXXXXXX,  KC_SPACE, DVORAK,  XXXXXXX, KC_6,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 // /* RAISE
@@ -147,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, DVORAK,  QWERTY,  GAMING,  XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
                              _______, _______, _______, _______, _______, _______, _______, _______
   ),
@@ -158,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |      |      |      |                    |      |  `   |  [   |  ]   |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      |  :   |  (   |  )   |  \   |      |
+ * |      |      |      |      |      |      |-------.    ,-------|TG_RAI|  :   |  (   |  )   |  \   |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -169,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMS] = LAYOUT(
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
   XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_GRV,     KC_LBRC,    KC_RBRC,    XXXXXXX,    XXXXXXX,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_COLN,    KC_LPRN,    KC_RPRN,    KC_BSLS,    XXXXXXX,
+  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            TG_RAI,     KC_COLN,    KC_LPRN,    KC_RPRN,    KC_BSLS,    XXXXXXX,
   QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
@@ -582,7 +582,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             autoshift_enable();
             break;
     }
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  return update_tri_layer_state(state, _SYMS, _RAISE, _ADJUST);
 }
 
 

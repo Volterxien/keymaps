@@ -7,7 +7,8 @@
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GLOWER MO(_GLOWER)
-#define SYMS MO(_SYMS);
+#define SYMS MO(_SYMS)
+#define TG_RAI TG(_RAISE)
 
 //Editing shortcuts
 #define COPY LCTL(KC_C)
@@ -48,10 +49,10 @@ enum layer_number {
   _DVORAK = 0,
   _GAME,
   _QWERTY,
-  _LOWER,
+  _SYMS,
   _RAISE,
   _ADJUST,
-  _SYMS,
+  _LOWER,
   _GLOWER
 };
 
