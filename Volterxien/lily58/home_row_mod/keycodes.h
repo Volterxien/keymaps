@@ -74,7 +74,8 @@ enum COMBOS{
     DSH_COMBO,
     EXCL_COMBO,
     EQL_COMBO,
-    ARR_COMBO,
-    NOTEQL_COMBO,
+    TG_RAISE_COMBO,
+    // ARR_COMBO,
+    // NOTEQL_COMBO,
     COMBO_LENGTH,
 };
