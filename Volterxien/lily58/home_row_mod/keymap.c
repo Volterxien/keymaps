@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
-#include "keycodes.h"
+#include "my_custom_codes.h"
 
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
@@ -23,7 +23,7 @@ combo_t key_combos[] = {
     [DSH_COMBO]     = COMBO(dsh_combo, KC_MINUS),
     [EXCL_COMBO]    = COMBO(excl_combo, KC_EXLM),
     [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
-    [TG_RAISE_COMBO]= COMBO(tg_raise_combo, KC_EQL),
+    [TG_RAISE_COMBO]= COMBO(tg_raise_combo, TG_RAI),
     // [ARR_COMBO]     = COMBO(arr_combo, KC_ARR),
     // [NOTEQL_COMBO]  = COMBO(noteql_combo, NOT_EQL)
 };
@@ -473,31 +473,6 @@ bool caps_word_press_user(uint16_t keycode) {
 }
 
 
-// sel line:
-// //el (select line)
-// SEND_STRING(SEL_LINE_MACRO);
-
-// yy (copy line)
-
-// dd (copy and delete line)
-
-// o (new line)
-
-// wrap word ()
-
-// wrap selection ()
-
-// wrap word []
-
-// wrap selection []
-
-// wrap word {}
-
-// wrap selection {}
-
-// lte
-
-// gte
 void leader_end_user(void) {
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
@@ -586,8 +561,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     }
   return update_tri_layer_state(state, _SYMS, _RAISE, _ADJUST);
 }
-
-
 
 /* KEYBOARD PET START */
 
@@ -825,6 +798,9 @@ bool oled_task_user(void) {
     return false;
 }
 #endif // OLED_ENABLE
+
+
+
 
 
 /**************************************************************************************************************************************************************************

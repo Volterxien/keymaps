@@ -1,4 +1,6 @@
 #pragma once
+#include QMK_KEYBOARD_H
+
 //keycode simplification 
 #define KC_LBRA LSFT(KC_LBRC)
 #define KC_RBRA LSFT(KC_RBRC)
@@ -44,6 +46,10 @@
 #define LT_GT LT(0, KC_LT)
 
 //Macros
+#define SEL_LINE_MACRO SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END))
+#define COPY_LINE_MACRO SEL_LINE_MACRO SS_LCTL(SS_TAP(X_C))
+#define DEL_LINE_MACRO (COPY_LINE_MACRO SS_TAP(X_DEL))
+#define NEW_LINE_MACRO (SS_TAP(X_END) SS_TAP(X_ENT))
 
 enum layer_number {
   _DVORAK = 0,

@@ -52,7 +52,7 @@
 #pragma once
 
 #include "quantum.h"
-#include "../keycodes.h"
+#include "my_custom_codes.h"
 
 #ifdef __cplusplus
 extern "C" {

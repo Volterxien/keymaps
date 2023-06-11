@@ -214,7 +214,12 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
-                                            
+  switch (tap_hold_keycode) {
+    case HOME_E:
+      if (other_keycode == KC_MINUS || other_keycode == KC_SLSH) { return true; }
+
+      break; 
+  }         
 
 
   if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }                                          
