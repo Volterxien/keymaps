@@ -874,6 +874,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code16(KC_GT);
                 return false;
             }
+            if (record->tap.count && record->event.pressed) {
+                register_code16(KC_LT); 
+                return false;
+            }
+            else if (record->tap.count){
+                unregister_code16(KC_LT);
+                return false;
+            }
             return true;
         case QWERTY:
             if (record->event.pressed) {
