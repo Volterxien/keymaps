@@ -868,17 +868,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LT_GT:
             if (!record->tap.count && record->event.pressed) {
                 register_code16(KC_GT); 
+                return false;
             }
             else if (!record->tap.count){
                 unregister_code16(KC_GT);
+                return false;
             }
-            else if (record->tap.count && record->event.pressed) {
-                register_code16(KC_LT);
-            }
-            else {
-                unregister_code16(KC_LT);
-            }
-            return false;
+            return true;
         case QWERTY:
             if (record->event.pressed) {
                 // set_single_persistent_default_layer(_QWERTY);
