@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------.    ,-------| Pgup | Left | Down | Right| Pgdn |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
+ * |      | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      | Menu |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   |      | BSPC |ent/low| /del/low/      \tab/rai\  |spc/rai| RGUI |      | 
  *                   |      |      |      |/       /         \      \  |       |      |      |
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
   XXXXXXX,  QK_BOOT,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,      KC_UP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    QK_LEAD,    XXXXXXX,                            H_PGU,      KC_LEFT,    KC_DOWN,    KC_RIGHT,   E_PGD,      XXXXXXX,
-  XXXXXXX,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_APP,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
@@ -414,12 +414,10 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     // decide by combo->keycode
     switch (combo->keycode) {
         case KC_ESC:
+	case TG_RAI:
             return 50;
         case KC_MINUS:
             return COMBO_TERM - 20;
-        case KC_ARR:
-        case NOT_EQL:
-            return COMBO_TERM - 10;
         default:
             return COMBO_TERM;
     }
@@ -502,7 +500,7 @@ void leader_end_user(void) {
     }
     // Copy line
     if (leader_sequence_two_keys(KC_Y, KC_Y)){
-        SEND_STRING(COPY_LINE_MACRO);
+        SEND_STRING(COPY_LINE_MACRO SS_TAP(X_RIGHT));
     }
     // Copy + del line
     if (leader_sequence_two_keys(KC_D, KC_D)){
@@ -511,6 +509,10 @@ void leader_end_user(void) {
     // New line
     if (leader_sequence_one_key(KC_O)){
         SEND_STRING(NEW_LINE_MACRO);
+    }
+    // New line above (KC_T instead of HOME_T because that's how QK_LEAD expects it)
+    if (leader_sequence_two_keys(KC_T, KC_O)){
+	SEND_STRING(NEW_LINE_ABOVE_MACRO);
     }
     // wrap word ()
     if (leader_sequence_one_key(KC_P)){
@@ -874,17 +876,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LT_GT:
             if (!record->tap.count && record->event.pressed) {
                 register_code16(KC_GT); 
+                return false;
             }
             else if (!record->tap.count){
                 unregister_code16(KC_GT);
+                return false;
             }
-            else if (record->tap.count && record->event.pressed) {
-                register_code16(KC_LT);
+            if (record->tap.count && record->event.pressed) {
+                register_code16(KC_LT); 
+                return false;
             }
-            else {
+            else if (record->tap.count){
                 unregister_code16(KC_LT);
+                return false;
             }
-            return false;
+            return true;
         case QWERTY:
             if (record->event.pressed) {
                 // set_single_persistent_default_layer(_QWERTY);
