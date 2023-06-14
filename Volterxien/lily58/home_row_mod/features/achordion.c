@@ -217,7 +217,9 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
   switch (tap_hold_keycode) {
     case HOME_E:
       if (other_keycode == KC_MINUS || other_keycode == KC_SLSH) { return true; }
-
+      break; 
+    case HOME_U:
+      if (other_keycode == KC_MINUS || other_keycode == KC_SLSH) { return true; }
       break; 
   }         
 
