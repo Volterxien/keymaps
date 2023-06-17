@@ -22,7 +22,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case E_PGD:
         case H_PGU:
         case LT_GT:
-            return TAPPING_TERM - 60;
+            return AUTO_SHIFT_TIMEOUT;
         default:
             return TAPPING_TERM; 
     }
@@ -214,4 +214,11 @@ bool caps_word_press_user(uint16_t keycode) {
             return false;  // Deactivate Caps Word.
     }
 }
+
+
+// td_state_t cur_dance(tap_dance_state_t *state);
+
+// // For the x tap dance. Put it here so it can be used in any keymap
+// void x_finished(tap_dance_state_t *state, void *user_data);
+// void x_reset(tap_dance_state_t *state, void *user_data);
 

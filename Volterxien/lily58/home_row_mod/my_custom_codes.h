@@ -41,9 +41,9 @@
 #define E_LOWER LT(_LOWER, KC_ENT)
 
 //Custom hold keys
-#define H_PGU LT(0, KC_HOME)
-#define E_PGD LT(0, KC_END)
-#define LT_GT LT(0, KC_LT)
+#define H_PGU TD(TD_H_PU)
+#define E_PGD TD(TD_E_PD)
+#define LT_GT TD(TD_GTLT)
 
 //Macros
 #define SEL_LINE_MACRO SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END))
@@ -52,7 +52,7 @@
 #define NEW_LINE_MACRO (SS_TAP(X_END) SS_TAP(X_ENT))
 #define NEW_LINE_ABOVE_MACRO (SS_TAP(X_HOME) SS_TAP(X_ENT) SS_TAP(X_UP))
 
-enum layer_number {
+enum LAYERS {
   _DVORAK = 0,
   _GAME,
   _QWERTY,
@@ -86,3 +86,32 @@ enum COMBOS{
     // NOTEQL_COMBO,
     COMBO_LENGTH,
 };
+
+enum TAP_DANCE{
+    TD_GTLT,
+    TD_E_PD,
+    TD_H_PU,
+};
+
+typedef enum {
+    TD_NONE,
+    TD_UNKNOWN,
+    TD_SINGLE_TAP,
+    TD_SINGLE_HOLD,
+    TD_DOUBLE_TAP,
+    TD_DOUBLE_HOLD,
+    TD_DOUBLE_SINGLE_TAP, // Send two single taps
+    TD_TRIPLE_TAP,
+    TD_TRIPLE_HOLD
+} td_state_t;
+
+typedef struct {
+    bool is_press_action;
+    td_state_t state;
+} td_tap_t;
+
+// typedef struct {
+//     uint16_t tap;
+//     uint16_t hold;
+//     uint16_t held;
+// } tap_dance_tap_hold_t;

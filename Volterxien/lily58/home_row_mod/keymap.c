@@ -2,6 +2,7 @@
 #include "features/achordion.h"
 #include "my_custom_codes.h"
 #include "oled.h"
+#include "my_combos.h"
 
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
@@ -243,14 +244,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
                         KC_LALT, KC_LGUI, KC_ENT, LOWER, RAISE, KC_SPC, KC_BSPC, KC_RGUI
  )
-
-  };
+};
 
 
 
 void matrix_scan_user(void) {
   achordion_task();
 }
+
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
