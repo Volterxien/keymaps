@@ -22,7 +22,7 @@ WPM_ENABLE = yes
 COMBO_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
 TAP_DANCE_ENABLE = yes
-
+INTROSPECTION_KEYMAP_C = combos.c
 
 # DEFERRED_EXEC_ENABLE = yes
 
@@ -35,8 +35,7 @@ SRC +=  ./lib/layer_state_reader.c \
         process_record_user.c \
         get_features.c \
         leader.c \
-        my_tap_dances.c \
-        my_combos.c \
+        tap_dances.c \
 
         #./lib/rgb_state_reader.c \
         # ./lib/mode_icon_reader.c \
