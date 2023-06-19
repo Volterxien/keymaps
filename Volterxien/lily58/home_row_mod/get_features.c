@@ -23,7 +23,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case H_PGU:
             return AUTO_SHIFT_TIMEOUT + 20;
         case LT_GT:
-            return LEADER_TIMEOUT;
+            return AUTO_SHIFT_TIMEOUT;
         default:
             return TAPPING_TERM; 
     }
@@ -34,11 +34,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case BS_LOWER:
+        case E_SYMS:
             return QUICK_TAP_TERM - 40;
         case S_RAISE:
         case E_LOWER:
         case BS_SYMS:
-        case E_SYMS:
             return 0;
         default:
             return QUICK_TAP_TERM;
