@@ -18,7 +18,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case HOME_S:   
             return TAPPING_TERM + 30;
         case S_RAISE:
-            return TAPPING_TERM + 40;                                                                         
+            return TAPPING_TERM + 40;
         case E_PGD:
         case H_PGU:
             return AUTO_SHIFT_TIMEOUT + 20;
@@ -160,10 +160,12 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     // decide by combo->keycode
     switch (combo->keycode) {
         case KC_ESC:
-	case TG_RAI:
-            return 50;
+	    return COMBO_TERM + 10; // 50
         case KC_MINUS:
             return COMBO_TERM - 20;
+	case KC_RGUI:
+	case TG_RAI:
+	    return COMBO_TERM + 20;
         default:
             return COMBO_TERM;
     }
