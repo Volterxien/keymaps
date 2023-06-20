@@ -23,7 +23,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case H_PGU:
             return AUTO_SHIFT_TIMEOUT + 20;
         case LT_GT:
-            return AUTO_SHIFT_TIMEOUT;
+            return AUTO_SHIFT_TIMEOUT + 10;
         default:
             return TAPPING_TERM; 
     }
