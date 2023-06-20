@@ -30,11 +30,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_DVORAK] = LAYOUT(
-  XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-  XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
-  XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
-  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,     XXXXXXX, XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    XXXXXXX,    KC_DEL,     BS_LOWER, E_SYMS,  T_RAISE, KC_SPC,     KC_RGUI,    XXXXXXX
+  XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                               KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
+  XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                               KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
+  XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,       XXXXXXX,    XXXXXXX,    KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
+                                    XXXXXXX,    KC_DEL,     BS_LOWER,   E_SYMS,     T_RAISE,    KC_SPC,     KC_RGUI,    XXXXXXX
 ),
 
 /* LOWER
@@ -52,10 +52,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
-  XXXXXXX,  QK_BOOT,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,      KC_UP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-  XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    QK_LEAD,    XXXXXXX,                            H_PGU,      KC_LEFT,    KC_DOWN,    KC_RIGHT,   E_PGD,      XXXXXXX,
-  XXXXXXX,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_APP,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  _______,   _______,   _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
+  XXXXXXX,   QK_BOOT,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,      KC_UP,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,   XXXXXXX,   XXXXXXX,    XXXXXXX,    QK_LEAD,    XXXXXXX,                            H_PGU,      KC_LEFT,    KC_DOWN,    KC_RIGHT,   E_PGD,      XXXXXXX,
+  XXXXXXX,   UNDO,      CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_APP,     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RAISE] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                     _______, _______, _______, _______, _______, _______,
-  XXXXXXX, XXXXXXX, LT_GT,   XXXXXXX, KC_COLN, XXXXXXX,                     XXXXXXX, XXXXXXX, GAMING,  QWERTY,  DVORAK,  XXXXXXX,
-  XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_EQL,                      TG_RAI,  KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINUS,KC_7,    XXXXXXX,  KC_SPACE, DVORAK,  XXXXXXX, KC_6,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
-                             _______, _______, _______,  _______, _______,  _______, _______, _______
+  _______,   _______,   _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
+  XXXXXXX,   XXXXXXX,   LT_GT,      XXXXXXX,    KC_COLN,    XXXXXXX,                            XXXXXXX,    XXXXXXX,    GAMING,     QWERTY,     DVORAK,     XXXXXXX,
+  XXXXXXX,   KC_9,      KC_5,       KC_0,       KC_3,       KC_EQL,                             TG_RAI,     KC_2,       KC_1,       KC_4,       KC_8,       XXXXXXX,
+  XXXXXXX,   XXXXXXX,   KC_SLSH,    KC_MINUS,   KC_7,       XXXXXXX,    KC_SPC,     DVORAK,     XXXXXXX,    KC_6,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, 
+                                    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 // /* RAISE
 //  * ,-----------------------------------------.                    ,-----------------------------------------.
