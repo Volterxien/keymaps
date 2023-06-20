@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX,   KC_QUOT,   KC_COMMA,   KC_DOT,     KC_P,       KC_Y,                       KC_F,       KC_G,       KC_C,       KC_R,       KC_L,       XXXXXXX,
   XXXXXXX,   HOME_A,    HOME_O,     HOME_E,     HOME_U,     KC_I,                       KC_D,       HOME_H,     HOME_T,     HOME_N,     HOME_S,     XXXXXXX,
   XXXXXXX,   KC_SCLN,   KC_Q,       KC_J,       KC_K,       KC_X,     XXXXXXX, XXXXXXX, KC_B,       KC_M,       KC_W,       KC_V,       KC_Z,       XXXXXXX,
-                                    XXXXXXX,    KC_DEL,     BS_LOWER, E_SYMS,  T_RAISE, KC_SPC,    KC_RGUI,    XXXXXXX
+                                    XXXXXXX,    KC_DEL,     BS_LOWER, E_SYMS,  T_RAISE, KC_SPC,     KC_RGUI,    XXXXXXX
 ),
 
 /* LOWER
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------.    ,-------|TG_RAI|  :   |  (   |  )   |  \   |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * | BOOT | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
+ * |      | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   |      |  DEL |bpc/low|/ent/sym/       \tab/rai\   | Space | RGUI |      | 
  *                   |      |      |      |/       /          \      \  |       |      |      |
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,    _______,    _______,    _______,    _______,                            _______,    _______,    _______,    _______,    _______,    _______,
   XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,    KC_GRV,     KC_LBRC,    KC_RBRC,    XXXXXXX,    XXXXXXX,
   XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,     XXXXXXX,                            XXXXXXX,     KC_COLN,    KC_LPRN,    KC_RPRN,    KC_BSLS,    XXXXXXX,
-  QK_BOOT,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+  XXXXXXX,  UNDO,       CUT,        COPY,       PASTE,      REDO,       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______
 ),
 
