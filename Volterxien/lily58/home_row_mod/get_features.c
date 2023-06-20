@@ -47,10 +47,9 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
     switch(keycode) {
-        case KC_1:
-        case KC_5:
-        case KC_6:
-        case KC_0:
+        case KC_8:
+        case KC_9:
+        case KC_2:
             return AUTO_SHIFT_TIMEOUT + 10;
         default:
             return get_generic_autoshift_timeout();
