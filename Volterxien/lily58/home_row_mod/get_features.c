@@ -33,9 +33,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case BS_LOWER:
+        case BS_LOW:
         case E_SYMS:
-            return QUICK_TAP_TERM - 50;
+            return QUICK_TAP_TERM - 55;
         case S_RAISE:
         case E_LOWER:
         case BS_SYMS:
@@ -216,10 +216,10 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
-
-// td_state_t cur_dance(tap_dance_state_t *state);
-
-// // For the x tap dance. Put it here so it can be used in any keymap
-// void x_finished(tap_dance_state_t *state, void *user_data);
-// void x_reset(tap_dance_state_t *state, void *user_data);
-
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
+    if ((get_highest_layer(layer_state)) == _DVORAK) {
+        return true;
+    }
+    else return false;
+}

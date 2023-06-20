@@ -36,7 +36,7 @@
 #define T_RAISE LT(_RAISE, KC_TAB)
 #define S_RAISE LT(_RAISE, KC_SPC)
 #define E_SYMS LT(_SYMS, KC_ENT)
-#define BS_LOWER LT(_LOWER, KC_BSPC)
+#define BS_LOW LT(_LOWER, KC_BSPC)
 #define BS_SYMS LT(_SYMS, KC_BSPC)
 #define E_LOWER LT(_LOWER, KC_ENT)
 
@@ -82,6 +82,8 @@ enum COMBOS{
     EXCL_COMBO,
     EQL_COMBO,
     TG_RAISE_COMBO,
+    DEL_COMBO,
+    RGUI_COMBO,
     // ARR_COMBO,
     // NOTEQL_COMBO,
     COMBO_LENGTH,
