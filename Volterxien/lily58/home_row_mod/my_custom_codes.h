@@ -111,9 +111,3 @@ typedef struct {
     bool is_press_action;
     td_state_t state;
 } td_tap_t;
-
-// typedef struct {
-//     uint16_t tap;
-//     uint16_t hold;
-//     uint16_t held;
-// } tap_dance_tap_hold_t;
