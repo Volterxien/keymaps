@@ -33,9 +33,9 @@
 #define HOME_S MT(MOD_RGUI, KC_S)
 
 //Layer tap defs
-//#define T_RAISE LT(_RAISE, KC_TAB)
+#define T_RAISE LT(_RAISE, KC_TAB)
 #define S_RAISE LT(_RAISE, KC_SPC)
-//#define E_SYMS LT(_SYMS, KC_ENT)
+#define E_SYMS LT(_SYMS, KC_ENT)
 #define BS_LOW LT(_LOWER, KC_BSPC)
 #define BS_SYMS LT(_SYMS, KC_BSPC)
 #define E_LOWER LT(_LOWER, KC_ENT)
