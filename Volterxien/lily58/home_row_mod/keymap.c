@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,                      KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    XXXXXXX,
   XXXXXXX, HOME_A,  HOME_O,  HOME_E,  HOME_U,  KC_I,                      KC_D,    HOME_H,  HOME_T,  HOME_N,  HOME_S,  XXXXXXX,
   XXXXXXX, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    XXXXXXX, XXXXXXX, KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    XXXXXXX,
-                             XXXXXXX, XXXXXXX, BS_LOW,  E_SYMS,  T_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
+                             XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
 ),
 
 /* LOWER
