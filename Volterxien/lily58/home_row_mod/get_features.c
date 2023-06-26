@@ -22,6 +22,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
 	case T_RAISE:
 	case E_SYMS:
 	case BS_LOW:
+	case T_SYMS:
+	case E_RAISE:
 	    return TAPPING_TERM - 20;
         case E_PGD:
         case H_PGU:
@@ -39,6 +41,7 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case BS_LOW:
         case E_SYMS:
+	case E_RAISE:
             return QUICK_TAP_TERM - 55;
         case S_RAISE:
         case E_LOWER:
