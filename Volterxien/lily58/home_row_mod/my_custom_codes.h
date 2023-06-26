@@ -86,6 +86,7 @@ enum COMBOS{
     TG_RAISE_COMBO,
     DEL_COMBO,
     RGUI_COMBO,
+    ENT_COMBO,
     // ARR_COMBO,
     // NOTEQL_COMBO,
     COMBO_LENGTH,

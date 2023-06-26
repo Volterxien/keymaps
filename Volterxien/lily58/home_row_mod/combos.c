@@ -9,6 +9,7 @@ const uint16_t PROGMEM dsh_combo[] = {HOME_N, HOME_T, COMBO_END};
 const uint16_t PROGMEM tg_raise_combo[] = {E_RAISE, KC_SPC, COMBO_END};
 const uint16_t PROGMEM del_combo[] = {KC_K, BS_LOW, COMBO_END};
 const uint16_t PROGMEM rgui_combo[] = {KC_W, KC_J, COMBO_END};
+const uint16_t PROGMEM ent_combo[] = {KC_K, KC_J, COMBO_END};
 // const uint16_t PROGMEM arr_combo[] = {HOME_A, HOME_O, COMBO_END};
 // const uint16_t PROGMEM noteql_combo[] = {KC_DOT, KC_P, COMBO_END};
 // const uint16_t PROGMEM res1_combo[] = {HOME_O, HOME_E, COMBO_END};
@@ -25,6 +26,7 @@ combo_t key_combos[] = {
     [TG_RAISE_COMBO]= COMBO(tg_raise_combo, TG_RAI),
     [DEL_COMBO]     = COMBO(del_combo, KC_DEL),
     [RGUI_COMBO]    = COMBO(rgui_combo, KC_RGUI),
+    [ENT_COMBO]     = COMBO(ent_combo, KC_ENT),
     // [ARR_COMBO]     = COMBO(arr_combo, KC_ARR),
     // [NOTEQL_COMBO]  = COMBO(noteql_combo, NOT_EQL)
 };
