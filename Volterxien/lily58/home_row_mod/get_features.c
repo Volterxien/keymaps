@@ -169,7 +169,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case KC_ESC:
 	    return COMBO_TERM + 10; // 50
         case KC_MINUS:
-            return COMBO_TERM - 20;
+            return COMBO_TERM - 15;
 	case KC_RGUI:
 	case TG_RAI:
 	    return COMBO_TERM + 20;

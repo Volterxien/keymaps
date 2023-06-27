@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      | </>  |      |  :   |      |                    |      |      | GAME |QWERTY|DVORAK|      |
+ * |      |      | </>  |   :  |  [   |      |                    |      |  ]   | GAME |QWERTY|DVORAK|      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   9  |  5   |  0   |  3   |  =   |-------.    ,-------|TG_RAI|  2   |  1   |  4   |  8   |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-  XXXXXXX, XXXXXXX, LT_GT,   XXXXXXX, KC_COLN, XXXXXXX,                   XXXXXXX, XXXXXXX, GAMING,  QWERTY,  DVORAK,  XXXXXXX,
+  XXXXXXX, XXXXXXX, LT_GT,   KC_COLN, KC_LBRC, XXXXXXX,                   XXXXXXX, KC_RBRC, GAMING,  QWERTY,  DVORAK,  XXXXXXX,
   XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_EQL,                    TG_RAI,  KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
   XXXXXXX, XXXXXXX, KC_SLSH, KC_MINS, KC_7,    XXXXXXX, KC_SPC,  DVORAK,  XXXXXXX, KC_6,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                              _______, _______, _______, _______, _______, _______, _______, _______
