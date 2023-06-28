@@ -94,6 +94,7 @@ void e_pgdn_reset(tap_dance_state_t *state, void *user_data) {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_GTLT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, gt_lt_finished, gt_lt_reset),
     [TD_E_PD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, e_pgdn_finished, e_pgdn_reset),
-    [TD_H_PU] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, h_pgup_finished, h_pgup_reset),
+    [TD_H_PU] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, h_pgup_finished, h_pgup_reset),     
+    [TD_INS_PAUSE] = ACTION_TAP_DANCE_DOUBLE(KC_BRK, KC_INS),
 
 };
