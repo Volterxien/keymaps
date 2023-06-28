@@ -227,7 +227,7 @@ bool caps_word_press_user(uint16_t keycode) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
-    if ((get_highest_layer(layer_state)) == _DVORAK) {
+    if (((get_highest_layer(layer_state)) == _DVORAK) || (get_highest_layer(layer_state)) == _RAISE)) {
         return true;
     }
     else return false;
