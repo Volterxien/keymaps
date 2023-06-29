@@ -108,31 +108,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |BRKINS|  F1  |  F2  |  F3  |  F4  |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|PRNSRC|  F5  |  F6  |  F7  |  F8  |      |   
- * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|SCRLK |  F9  |  F10 |  F11 | F12  |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |      |      |bpc/low|/ent/sym/       \tab/rai\   | Space |      |      | 
- *                   |      |      |      |/       /          \      \  |       |      |      |
- *                   `----------------------------'           '------''--------------------'
- */
-  [_ADJUST] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   BRK_INS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PSCR, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SCRL, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
-                             _______, _______, _______, _______, _______, _______, _______, _______
-  ),
-
-/* SYMS
- * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |  `   |  [   |  ]   |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      |  :   |  (   |  )   |  \   |      |
+ * |      |      |      |      |      |      |-------.    ,-------|      |      |      |      |      |      |   
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -140,11 +118,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   |      |      |      |/       /          \      \  |       |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
+/*  [_ADJUST] = LAYOUT(
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  
+                             _______, _______, _______, _______, _______, _______, _______, _______
+  ),
+*/
+/* SYMS
+ * ,-----------------------------------------.                    ,-----------------------------------------.
+ * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |  F1  |  F2  |  F3  |  F4  |BRKINS|                    |      |  `   |  [   |  ]   |      |      |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |  F5  |  F6  |  F7  |  F8  |PRNSRC|-------.    ,-------|      |  :   |  (   |  )   |  \   |      |
+ * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |      |  F9  |  F10 |  F11 | F12  |SCRLK |-------|    |-------|      |      |      |      |      |      |
+ * `-----------------------------------------/       /     \      \-----------------------------------------'
+ *                   |      |      |bpc/low|/ent/sym/       \tab/rai\   | Space |      |      | 
+ *                   |      |      |      |/       /          \      \  |       |      |      |
+ *                   `----------------------------'           '------''--------------------'
+ */
 [_SYMS] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_GRV, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_COLN, KC_LPRN, KC_RPRN, KC_BSLS, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   BRK_INS,                   XXXXXXX, KC_GRV, KC_LBRC, KC_RBRC, XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_PSCR,                   XXXXXXX, KC_COLN, KC_LPRN, KC_RPRN, KC_BSLS, XXXXXXX,
+  XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_SCRL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                              _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
@@ -237,5 +237,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             autoshift_enable();
             break;
     }
-  return update_tri_layer_state(state, _SYMS, _RAISE, _ADJUST);
+    return state;
+  //uncomment for adjust layer
+  //return update_tri_layer_state(state, _SYMS, _RAISE, _ADJUST);
 }
