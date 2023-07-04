@@ -1,10 +1,19 @@
 #include QMK_KEYBOARD_H
 #include "my_custom_codes.h"
 void leader_end_user(void) {
+    if (leader_sequence_one_key(KC_QUOT)) {
+        layer_move(_DVORAK);
+    }
+    if (leader_sequence_one_key(KC_COMM)) {
+        layer_move(_QWERTY);
+    }
+    if (leader_sequence_one_key(KC_DOT)) {
+        layer_move(_GAME);
+    }
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
     }
-    if (leader_sequence_one_key(KC_DOT)) {
+    if (leader_sequence_one_key(KC_EXLM)) {
         SEND_STRING(" != ");
     }
     // save vim
@@ -30,6 +39,10 @@ void leader_end_user(void) {
     // windows screen shot
     if (leader_sequence_one_key(KC_S)) {
         SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_S))));
+    }
+    // Sel line
+    if (leader_sequence_one_key(KC_SPC)){
+        SEND_STRING(SEL_LINE_MACRO);
     }
     // Copy line
     if (leader_sequence_two_keys(KC_Y, KC_Y)){
