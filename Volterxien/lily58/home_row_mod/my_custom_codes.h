@@ -75,7 +75,8 @@ enum CUSTOM_KEYCODES{
     S_VIM,
     KC_ARR,
     KC_BSDL,
-    NOT_EQL
+    NOT_EQL,
+    PREVDIR,
 };
 
 enum COMBOS{
