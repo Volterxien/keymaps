@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "my_custom_codes.h"
 void leader_end_user(void) {
-    if (leader_sequence_one_key(KC_QUOT)) {
+    if (leader_sequence_one_key(COPY)) {
         layer_move(_DVORAK);
     }
     if (leader_sequence_one_key(KC_COMM)) {
