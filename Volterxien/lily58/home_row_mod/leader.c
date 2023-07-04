@@ -15,6 +15,10 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_Q)) {
         SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_W) SS_TAP(X_Q) SS_TAP(X_ENT));
     }
+    // force quit vim
+    if (leader_sequence_one_key(KC_J)) {
+        SEND_STRING(SS_TAP(X_ESC) SS_LSFT(SS_TAP(X_SCLN)) SS_TAP(X_Q) SS_LSFT(SS_TAP(X_1)) SS_TAP(X_ENT));
+    }
     // del eol
     if (leader_sequence_one_key(KC_DEL)) {
         SEND_STRING(SS_LSFT(SS_TAP(X_END)) SS_TAP(X_DEL));
