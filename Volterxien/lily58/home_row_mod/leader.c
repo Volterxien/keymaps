@@ -53,7 +53,7 @@ void leader_end_user(void) {
     }
     // wrap word ()
     if (leader_sequence_one_key(KC_T)){
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) SS_TAP(X_LEFT) ")");
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) ")" SS_TAP(X_LEFT));
     }
     // wrap selection ()
     if (leader_sequence_two_keys(KC_T, KC_T)){
@@ -61,7 +61,7 @@ void leader_end_user(void) {
     }
     // wrap word []
     if (leader_sequence_one_key(KC_C)){
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) SS_TAP(X_LEFT) "]");
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) "]" SS_TAP(X_LEFT));
     }
     // wrap selection []
     if (leader_sequence_two_keys(KC_C, KC_C)){
@@ -69,7 +69,7 @@ void leader_end_user(void) {
     }
     // wrap word {}
     if (leader_sequence_one_key(KC_W)){
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) SS_TAP(X_LEFT) "}");
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) "}" SS_TAP(X_LEFT));
     }
     // wrap selection {}
     if (leader_sequence_two_keys(KC_W, KC_W)){
