@@ -1,15 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "my_custom_codes.h"
 void leader_end_user(void) {
-    if (leader_sequence_one_key(COPY)) {
-        layer_move(_DVORAK);
-    }
-    if (leader_sequence_one_key(KC_COMM)) {
-        layer_move(_QWERTY);
-    }
-    if (leader_sequence_one_key(KC_DOT)) {
-        layer_move(_GAME);
-    }
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
     }
@@ -61,35 +52,35 @@ void leader_end_user(void) {
 	SEND_STRING(NEW_LINE_ABOVE_MACRO);
     }
     // wrap word ()
-    if (leader_sequence_one_key(KC_P)){
+    if (leader_sequence_one_key(KC_T)){
         SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) SS_TAP(X_LEFT) ")");
     }
     // wrap selection ()
-    if (leader_sequence_two_keys(KC_P, KC_P)){
+    if (leader_sequence_two_keys(KC_T, KC_T)){
         SEND_STRING(SS_LCTL(SS_TAP(X_X)) "()" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
     }
     // wrap word []
-    if (leader_sequence_one_key(KC_B)){
+    if (leader_sequence_one_key(KC_C)){
         SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) SS_TAP(X_LEFT) "]");
     }
     // wrap selection []
-    if (leader_sequence_two_keys(KC_B, KC_B)){
+    if (leader_sequence_two_keys(KC_C, KC_C)){
         SEND_STRING(SS_LCTL(SS_TAP(X_X)) "[]" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
     }
     // wrap word {}
-    if (leader_sequence_one_key(KC_C)){
+    if (leader_sequence_one_key(KC_W)){
         SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) SS_TAP(X_LEFT) "}");
     }
     // wrap selection {}
-    if (leader_sequence_two_keys(KC_C, KC_C)){
+    if (leader_sequence_two_keys(KC_W, KC_W)){
         SEND_STRING(SS_LCTL(SS_TAP(X_X)) "{}" SS_TAP(X_LEFT) SS_LCTL(SS_TAP(X_V)) SS_TAP(X_RIGHT));
     }
     // GTE
-    if (leader_sequence_one_key(KC_G)){
+    if (leader_sequence_one_key(KC_DOT)){
         SEND_STRING(" >= ");
     }
     // LTE
-    if (leader_sequence_one_key(KC_L)){
+    if (leader_sequence_one_key(KC_COMM)){
         SEND_STRING(" <= ");
     }
 

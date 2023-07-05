@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      | BOOT |      |      |      |      |                    |      |      |  Up  |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      | LEAD |      |-------.    ,-------| Pgup | Left | Down | Right| Pgdn |      |
+ * |      |DVORAK|QWERTY| GAME | Lead |      |-------.    ,-------| Pgup | Left | Down | Right| Pgdn |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      | Undo |  Cut | Copy | Paste| Redo |-------|    |-------|      | Menu |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
   XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_LEAD, XXXXXXX,                   H_PGU,   KC_LEFT, KC_DOWN, KC_RIGHT, E_PGD,  XXXXXXX,
+  XXXXXXX, DVORAK,  QWERTY,  GAMING,  QK_LEAD, XXXXXXX,                   H_PGU,   KC_LEFT, KC_DOWN, KC_RIGHT, E_PGD,  XXXXXXX,
   XXXXXXX, UNDO,    CUT,     COPY,    PASTE,   REDO,    XXXXXXX, XXXXXXX, XXXXXXX, KC_APP,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                              _______, _______, _______, _______, _______, _______, _______, _______
 ),
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      | </>  |   :  |      |      |                    |      |      | GAME |QWERTY|DVORAK|      |
+ * |      |      | </>  |   :  |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   9  |  5   |  0   |  3   |  =   |-------.    ,-------|TG_RAI|  2   |  1   |  4   |  8   |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
-  XXXXXXX, XXXXXXX, LT_GT,   KC_COLN, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, GAMING,  QWERTY,  DVORAK,  XXXXXXX,
+  XXXXXXX, XXXXXXX, LT_GT,   KC_COLN, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
   XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_EQL,                    TG_RAI,  KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
   XXXXXXX, XXXXXXX, KC_SLSH, KC_MINS, KC_7,    XXXXXXX, KC_SPC,  DVORAK,  XXXXXXX, KC_6,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
                              _______, _______, _______, _______, _______, _______, _______, _______
@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |      |      |      |Space |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  `   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |GLOWER|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |  Up  |  '   |
+ * |GLOWER|DVORAK|QWERTY| GAME |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |  Up  |  '   |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
  * | LCTL |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  | Left | Down | Right|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -192,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_GLOWER] = LAYOUT(
   KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  _______,                       _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                       _______, _______, _______, _______, _______, _______,
+  _______, DVORAK,  QWERTY,  GAMING,  _______, _______,                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______,
                              _______, _______, _______, _______,     _______, _______, _______, _______
  ),
@@ -217,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
-                        KC_LALT, KC_LGUI, KC_ENT, LOWER, RAISE, KC_SPC, KC_BSPC, KC_RGUI
+                        KC_LALT, KC_LGUI, BS_LOW, T_SYMS, E_RAISE, KC_SPC, KC_BSPC, KC_RGUI
  )
 };
 
