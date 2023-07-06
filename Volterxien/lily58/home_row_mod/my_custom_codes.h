@@ -89,6 +89,7 @@ enum COMBOS{
     DEL_COMBO,
     RGUI_COMBO,
     ENT_COMBO,
+    QW_ESC_COMBO,
     // LPAR_COMBO,
     // RPAR_COMBO,
     // LBRC_COMBO,
