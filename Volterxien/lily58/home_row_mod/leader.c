@@ -28,7 +28,7 @@ void leader_end_user(void) {
         SEND_STRING(SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_DEL));
     }
     // windows screen shot
-    if (leader_sequence_one_key(KC_S)) {
+    if (leader_sequence_one_key(KC_P)) {
         SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_S))));
     }
     // Sel line
