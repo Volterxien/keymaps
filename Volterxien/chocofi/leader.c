@@ -7,11 +7,6 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(CUT)) {
         layer_move(_QWERTY);
     }
-    if (!(get_highest_layer(layer_state)) == _DVORAK){
-        if (leader_sequence_one_key(KC_B)) {
-            layer_move(_DVORAK);
-        }
-    }
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
     }
