@@ -241,3 +241,12 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
                 else return false;
         }
 }
+
+
+void housekeeping_task_user(void){
+    if (last_input_activity_elapsed() > 5000) {
+        if((get_highest_layer(layer_state)) == _RAISE) {
+            layer_move(_DVORAK);
+        }
+    }
+}

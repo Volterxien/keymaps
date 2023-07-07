@@ -47,6 +47,7 @@
 #define E_PGD TD(TD_E_PD)
 #define LT_GT TD(TD_GTLT)
 #define BRK_INS TD(TD_INS_PAUSE)
+#define B_DVRK TD(TD_B_DVORAK)
 
 //Macros
 #define SEL_LINE_MACRO SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END))
@@ -104,6 +105,7 @@ enum TAP_DANCE{
     TD_E_PD,
     TD_H_PU,
     TD_INS_PAUSE,
+    TD_B_DVORAK,
 };
 
 typedef enum {
