@@ -15,10 +15,8 @@
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // tap_dance_action_t *action;
     if (!process_achordion(keycode, record)) { return false; }
-
         switch(keycode){
             /* KEYBOARD PET STATUS START */
-
             case KC_SPC:
                 if (record->event.pressed) {
                     isJumping  = true;
@@ -28,6 +26,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
                 break;
                 /* KEYBOARD PET STATUS END */
+
                 // try sending tap keycode instead of more intense logic
             // case KC_BSDL:
             //     if (record->event.pressed) {
