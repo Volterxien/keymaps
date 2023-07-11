@@ -60,6 +60,8 @@ enum LAYERS {
   _DVORAK = 0,
   _GAME,
   _QWERTY,
+  _SEMIMAK,
+  _GRAPHITE,
   _RAISE,
   _SYMS,
   _ADJUST,
@@ -71,6 +73,8 @@ enum CUSTOM_KEYCODES{
     DVORAK = SAFE_RANGE,
     QWERTY,
     GAMING,
+    SEMI,
+    GRAPH,
     DEL_EOL,
     BS_SOL,
     S_VIM,
@@ -97,6 +101,34 @@ enum COMBOS{
     // RBRC_COMBO,
     // _COMBO,
     // NOTEQL_COMBO,
+
+
+//graphite combos
+    // GESC_COMBO,
+    // GSLSH_COMBO,
+    // GDSH_COMBO,
+    // GEXCL_COMBO,
+    // GEQL_COMBO,
+    // GDEL_COMBO,
+    // GRGUI_COMBO,
+    // GENT_COMBO,
+
+
+
+    SESC_COMBO,
+    SSLSH_COMBO,
+    SDSH_COMBO,
+    SEXCL_COMBO,
+    SEQL_COMBO,
+    SDEL_COMBO,
+    SRGUI_COMBO,
+    SENT_COMBO,
+
+
+
+
+
+
     COMBO_LENGTH,
 };
 
@@ -124,3 +156,21 @@ typedef struct {
     bool is_press_action;
     td_state_t state;
 } td_tap_t;
+
+
+
+#define HOME_GN MT(MOD_LGUI, KC_N)
+#define HOME_GR MT(MOD_LALT, KC_R)
+#define HOME_GT MT(MOD_LSFT, KC_T)
+#define HOME_GS MT(MOD_LCTL, KC_S)
+#define HOME_GA MT(MOD_RSFT, KC_A)
+#define HOME_GE MT(MOD_RALT, KC_E)
+#define HOME_GI MT(MOD_RGUI, KC_I)
+
+
+#define HOME_SS MT(MOD_LGUI, KC_S)
+#define HOME_SN MT(MOD_LSFT, KC_N)
+#define HOME_ST MT(MOD_LCTL, KC_T)
+#define HOME_SD MT(MOD_RCTL, KC_D)
+#define HOME_SE MT(MOD_RSFT, KC_E)
+#define HOME_SA MT(MOD_RALT, KC_A)

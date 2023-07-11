@@ -235,10 +235,10 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
                 }
                 return false; 
             default:
-                if ((get_highest_layer(layer_state)) == _DVORAK){
+                if (((get_highest_layer(layer_state)) == _DVORAK) || (get_highest_layer(layer_state) == _SEMIMAK) || (get_highest_layer(layer_state) == _GRAPHITE)){
                     return true;
                 }
-                else return false;
+                else {return false;}
         }
 }
 

@@ -206,8 +206,14 @@ void oled_render_layer_state(void) {
         case _SYMS:
             oled_write_ln_P(PSTR("Syms"), false);
             break;
-        case _GLOWER:
-            oled_write_ln_P(PSTR("Glowr"), false);
+        // case _GLOWER:
+        //     oled_write_ln_P(PSTR("Glowr"), false);
+        //     break;
+        case _SEMIMAK:
+            oled_write_ln_P(PSTR("Semi"), false);
+            break;
+        case _GRAPHITE:
+            oled_write_ln_P(PSTR("Graph"), false);
             break;
 
     }

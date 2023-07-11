@@ -66,6 +66,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     layer_move(_DVORAK);
                 }
                     return false;
+            case SEMI:
+                if  (record->event.pressed) {
+                    layer_move(_SEMIMAK);
+                }
+                    return false;
+            case GRAPH:
+                if  (record->event.pressed) {
+                    layer_move(_GRAPHITE);
+                }
+                    return false;
         }
         // if (record->event.pressed) {
 // 
