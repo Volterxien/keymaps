@@ -22,7 +22,7 @@
 //modtap
 #define ALT_ENT MT(MOD_LALT, KC_ENT) 
 
-//home row mods
+//dvorak home row mods
 #define HOME_A MT(MOD_LGUI, KC_A)
 #define HOME_O MT(MOD_LALT, KC_O)
 #define HOME_E MT(MOD_LSFT, KC_E)
@@ -31,6 +31,16 @@
 #define HOME_T MT(MOD_RSFT, KC_T)
 #define HOME_N MT(MOD_RALT, KC_N)
 #define HOME_S MT(MOD_RGUI, KC_S)
+
+//qwerty home row mods
+#define HOME_QA HOME_A
+#define HOME_QS MT(MOD_LALT, KC_S)
+#define HOME_QD MT(MOD_LSFT, KC_D)
+#define HOME_QF MT(MOD_LCTL, KC_F)
+#define HOME_QJ MT(MOD_RCTL, KC_J)
+#define HOME_QK MT(MOD_RSFT, KC_K)
+#define HOME_QL MT(MOD_RALT, KC_L)
+#define HOME_QSC MT(MOD_RGUI, KC_SCLN)
 
 //Layer tap defs
 #define T_RAISE LT(_RAISE, KC_TAB)
@@ -115,6 +125,7 @@ enum COMBOS{
 
 
 
+    // semimak combos
     SESC_COMBO,
     SSLSH_COMBO,
     SDSH_COMBO,
@@ -160,17 +171,20 @@ typedef struct {
 
 
 #define HOME_GN MT(MOD_LGUI, KC_N)
-#define HOME_GR MT(MOD_LALT, KC_R)
+#define HOME_GR HOME_SR
 #define HOME_GT MT(MOD_LSFT, KC_T)
 #define HOME_GS MT(MOD_LCTL, KC_S)
+#define HOME_GH HOME_H
 #define HOME_GA MT(MOD_RSFT, KC_A)
 #define HOME_GE MT(MOD_RALT, KC_E)
-#define HOME_GI MT(MOD_RGUI, KC_I)
+#define HOME_GI HOME_SI
 
 
 #define HOME_SS MT(MOD_LGUI, KC_S)
+#define HOME_SR MT(MOD_LALT, KC_R)
 #define HOME_SN MT(MOD_LSFT, KC_N)
 #define HOME_ST MT(MOD_LCTL, KC_T)
 #define HOME_SD MT(MOD_RCTL, KC_D)
 #define HOME_SE MT(MOD_RSFT, KC_E)
 #define HOME_SA MT(MOD_RALT, KC_A)
+#define HOME_SI MT(MOD_RGUI, KC_I)
