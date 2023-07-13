@@ -24,7 +24,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         case BS_LOW:
         case T_SYMS:
         case E_RAISE:
-            return TAPPING_TERM - 20;
+            return TAPPING_TERM - 25;
         case E_PGD:
         case H_PGU:
             return AUTO_SHIFT_TIMEOUT + 20;
