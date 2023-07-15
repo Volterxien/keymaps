@@ -233,6 +233,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, KC_X, KC_J,    KC_B,    KC_M,    KC_Q,    XXXXXXX, XXXXXXX, KC_P,    KC_G,    KC_COMM,    KC_DOT,    KC_SCLN,    XXXXXXX,
                              XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
  ),
+//  [_SEMIMAK] = LAYOUT(
+//   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//   XXXXXXX, KC_F, KC_L, KC_H,  KC_V,    KC_Z,                      KC_QUOT,    KC_W,    KC_U,    KC_O,    KC_Y,    XXXXXXX,
+//   XXXXXXX, KC_S,  KC_R,  KC_N,  KC_T,  KC_K,                      KC_C,    KC_D,  KC_E,  KC_A,  KC_I,  XXXXXXX,
+//   XXXXXXX, KC_X, KC_J,    KC_B,    KC_M,    KC_Q,    XXXXXXX, XXXXXXX, KC_P,    KC_G,    KC_COMM,    KC_DOT,    KC_SCLN,    XXXXXXX,
+//                              XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
+//  ),
 };
 
 
