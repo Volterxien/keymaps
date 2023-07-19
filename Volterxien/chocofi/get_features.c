@@ -184,6 +184,7 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
     // return true;
 
     // If you want *all* combos, that have Mod-Tap/Layer-Tap/Momentary keys in its chord, to be tap-only, this is for you:
+    if(combo->keycode == KC_BSPC) {return false;}
     uint16_t key;
     uint8_t idx = 0;
     while ((key = pgm_read_word(&combo->keys[idx])) != COMBO_END) {

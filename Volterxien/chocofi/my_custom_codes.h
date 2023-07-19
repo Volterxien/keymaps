@@ -103,6 +103,7 @@ enum COMBOS{
     EQL_COMBO,
     DEL_COMBO,
     RGUI_COMBO,
+    BS_COMBO,
     ENT_COMBO,
 
     //generic comobs

@@ -9,6 +9,7 @@ const uint16_t PROGMEM eql_combo[] = {KC_J, KC_Q, COMBO_END};
 const uint16_t PROGMEM dsh_combo[] = {KC_SPC, HOME_T, COMBO_END};
 const uint16_t PROGMEM del_combo[] = {KC_K, BS_LOW, COMBO_END};
 const uint16_t PROGMEM rgui_combo[] = {KC_W, KC_J, COMBO_END};
+const uint16_t PROGMEM bs_combo[] = {KC_J, BS_LOW, COMBO_END};
 const uint16_t PROGMEM ent_combo[] = {KC_K, KC_J, COMBO_END};
 
 //generic combos
@@ -43,6 +44,7 @@ combo_t key_combos[] = {
     [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
     [DEL_COMBO]     = COMBO(del_combo, KC_DEL),
     [RGUI_COMBO]    = COMBO(rgui_combo, KC_RGUI),
+    [BS_COMBO]      = COMBO(bs_combo, KC_BSPC),
     [ENT_COMBO]     = COMBO(ent_combo, KC_ENT),
 
     // combos or all layers
