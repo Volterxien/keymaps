@@ -67,11 +67,10 @@
 #define NEW_LINE_ABOVE_MACRO (SS_TAP(X_HOME) SS_TAP(X_ENT) SS_TAP(X_UP))
 
 enum LAYERS {
-  _DVORAK = 0,
+  _SEMIMAK = 0,
+  _DVORAK,
   _GAME,
   _QWERTY,
-  _SEMIMAK,
-  _GRAPHITE,
   _RAISE,
   _SYMS,
   _ADJUST,
@@ -128,6 +127,7 @@ enum COMBOS{
     SEQL_COMBO,
     SDEL_COMBO,
     SRGUI_COMBO,
+    SBS_COMBO,
     SENT_COMBO,
 
 

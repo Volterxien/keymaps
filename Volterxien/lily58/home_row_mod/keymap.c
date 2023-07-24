@@ -219,13 +219,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                         KC_LALT, KC_LGUI, BS_LOW, T_SYMS, E_RAISE, KC_SPC, KC_BSPC, KC_RGUI
  ),
- [_GRAPHITE] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, KC_B, KC_L, KC_D,  KC_W,    KC_Z,                      KC_QUOT,    KC_F,    KC_O,    KC_U,    KC_J,    XXXXXXX,
-  XXXXXXX, HOME_GN,  HOME_GR,  HOME_GT,  HOME_GS,  KC_G,                      KC_Y,    HOME_GH,  HOME_GA,  HOME_GE,  HOME_GI,  XXXXXXX,
-  XXXXXXX, KC_Q,    KC_X,    KC_M,    KC_C, KC_V,    XXXXXXX, XXXXXXX, KC_K,    KC_P,    KC_DOT,    KC_COMM,    KC_SCLN,    XXXXXXX,
-                             XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
- ),
+//  [_GRAPHITE] = LAYOUT(
+//   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//   XXXXXXX, KC_B, KC_L, KC_D,  KC_W,    KC_Z,                      KC_QUOT,    KC_F,    KC_O,    KC_U,    KC_J,    XXXXXXX,
+//   XXXXXXX, HOME_GN,  HOME_GR,  HOME_GT,  HOME_GS,  KC_G,                      KC_Y,    HOME_GH,  HOME_GA,  HOME_GE,  HOME_GI,  XXXXXXX,
+//   XXXXXXX, KC_Q,    KC_X,    KC_M,    KC_C, KC_V,    XXXXXXX, XXXXXXX, KC_K,    KC_P,    KC_DOT,    KC_COMM,    KC_SCLN,    XXXXXXX,
+//                              XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
+//  ),
  [_SEMIMAK] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, KC_F, KC_L, KC_H,  KC_V,    KC_Z,                      KC_QUOT,    KC_W,    KC_U,    KC_O,    KC_Y,    XXXXXXX,
@@ -233,13 +233,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, KC_X, KC_J,    KC_B,    KC_M,    KC_Q,    XXXXXXX, XXXXXXX, KC_P,    KC_G,    KC_COMM,    KC_DOT,    KC_SCLN,    XXXXXXX,
                              XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
  ),
-//  [_SEMIMAK] = LAYOUT(
-//   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX, KC_F, KC_L, KC_H,  KC_V,    KC_Z,                      KC_QUOT,    KC_W,    KC_U,    KC_O,    KC_Y,    XXXXXXX,
-//   XXXXXXX, KC_S,  KC_R,  KC_N,  KC_T,  KC_K,                      KC_C,    KC_D,  KC_E,  KC_A,  KC_I,  XXXXXXX,
-//   XXXXXXX, KC_X, KC_J,    KC_B,    KC_M,    KC_Q,    XXXXXXX, XXXXXXX, KC_P,    KC_G,    KC_COMM,    KC_DOT,    KC_SCLN,    XXXXXXX,
-//                              XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
-//  ),
+
 };
 
 
