@@ -21,14 +21,7 @@
  */
 
 #include "achordion.h"
-// enum custom_keycodes{
-// //   KC_QWERTY = SAFE_RANGE,
-// //   KC_GAMING,
-// //   KC_DVORAK
-//     KC_TAB_RAISE = SAFE_RANGE,    
-//     KC_DEL_LOWER,
-    
-// };
+
 
 // Copy of the `record` and `keycode` args for the current active tap-hold key.
 static keyrecord_t tap_hold_record;

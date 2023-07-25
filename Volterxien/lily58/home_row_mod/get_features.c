@@ -16,6 +16,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM - 65;
         case HOME_A:
         case HOME_S:   
+        case HOME_SS:
+        case HOME_SI:
             return TAPPING_TERM + 30;
         case S_RAISE:
             return TAPPING_TERM + 40;
@@ -30,6 +32,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return AUTO_SHIFT_TIMEOUT + 20;
         case LT_GT:
             return AUTO_SHIFT_TIMEOUT;
+
+        // semimak hrm
+        case HOME_SN:
+        case HOME_SE:
+            return TAPPING_TERM - 20;
         default:
             return TAPPING_TERM; 
     }
@@ -39,10 +46,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case BS_LOW:
         case E_SYMS:
-	case E_RAISE:
+        case E_RAISE:
             return QUICK_TAP_TERM - 55;
+        case BS_LOW:
         case S_RAISE:
         case E_LOWER:
         case BS_SYMS:
