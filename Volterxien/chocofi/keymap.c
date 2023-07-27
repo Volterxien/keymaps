@@ -2,7 +2,8 @@
 #include "features/achordion.h"
 #include "my_custom_codes.h"
 #include "oled.h"
-
+//TODO merge changes 
+//add semimak + other small changes
 
 
 /**************************************************************************************************************************************************************************
