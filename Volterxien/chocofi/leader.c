@@ -1,11 +1,8 @@
 #include QMK_KEYBOARD_H
 #include "my_custom_codes.h"
 void leader_end_user(void) {
-    if (leader_sequence_one_key(UNDO)) {
-        layer_move(_GAME);
-    }
-    if (leader_sequence_one_key(CUT)) {
-        layer_move(_QWERTY);
+    if (leader_sequence_one_key(KC_F)) {
+        reset_keyboard();
     }
     if (leader_sequence_one_key(KC_A)) {
          SEND_STRING("->");
