@@ -95,29 +95,19 @@ enum CUSTOM_KEYCODES{
 
 enum COMBOS{
     //dvorak combos
-    ESC_COMBO,
-    SLSH_COMBO,
-    DSH_COMBO,
-    EXCL_COMBO,
-    EQL_COMBO,
-    DEL_COMBO,
-    RGUI_COMBO,
-    BS_COMBO,
-    ENT_COMBO,
+    // ESC_COMBO,
+    // SLSH_COMBO,
+    // DSH_COMBO,
+    // EXCL_COMBO,
+    // EQL_COMBO,
+    // DEL_COMBO,
+    // RGUI_COMBO,
+    // BS_COMBO,
+    // ENT_COMBO,
 
     //generic comobs
     TG_RAISE_COMBO,
     QW_ESC_COMBO,
-
-//graphite combos
-    // GESC_COMBO,
-    // GSLSH_COMBO,
-    // GDSH_COMBO,
-    // GEXCL_COMBO,
-    // GEQL_COMBO,
-    // GDEL_COMBO,
-    // GRGUI_COMBO,
-    // GENT_COMBO,
 
     // semimak combos
     SESC_COMBO,
@@ -130,6 +120,8 @@ enum COMBOS{
     SBS_COMBO,
     SLPAR_COMBO,
     SRPAR_COMBO,
+    SLBRC_COMBO,
+    SRBRC_COMBO,
     SENT_COMBO,
 
 

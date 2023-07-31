@@ -16,15 +16,6 @@ const uint16_t PROGMEM ent_combo[] = {KC_K, KC_J, COMBO_END};
 const uint16_t PROGMEM tg_raise_combo[] = {E_RAISE, KC_SPC, COMBO_END};
 const uint16_t PROGMEM qw_esc_combo[] = {KC_Q, KC_W, COMBO_END};
 
-//graphite combos
-const uint16_t PROGMEM gesc_combo[] = {KC_B, KC_L, COMBO_END};
-const uint16_t PROGMEM gslsh_combo[] = {KC_DOT, KC_COMM, COMBO_END};
-const uint16_t PROGMEM gexcl_combo[] = {KC_L, KC_D, COMBO_END};
-const uint16_t PROGMEM geql_combo[] = {KC_X, KC_M, COMBO_END};
-const uint16_t PROGMEM gdsh_combo[] = {KC_SPC, HOME_GA, COMBO_END};
-const uint16_t PROGMEM gdel_combo[] = {KC_C, BS_LOW, COMBO_END};
-const uint16_t PROGMEM grgui_combo[] = {KC_M, KC_DOT, COMBO_END};
-const uint16_t PROGMEM gent_combo[] = {KC_M, KC_C, COMBO_END};
 
 //semimak combos
 const uint16_t PROGMEM sesc_combo[] = {KC_F, KC_L, COMBO_END};
@@ -37,32 +28,24 @@ const uint16_t PROGMEM srgui_combo[] = {KC_B, KC_COMM, COMBO_END};
 const uint16_t PROGMEM sbs_combo[] = {KC_B, BS_LOW, COMBO_END};
 const uint16_t PROGMEM slpar_combo[] = {KC_V, HOME_ST, COMBO_END};
 const uint16_t PROGMEM srpar_combo[] = {KC_W, HOME_SD, COMBO_END};
+const uint16_t PROGMEM slbrc_combo[] = {KC_M, HOME_ST, COMBO_END};
+const uint16_t PROGMEM srbrc_combo[] = {KC_G, HOME_SD, COMBO_END};
 const uint16_t PROGMEM sent_combo[] = {KC_B, KC_M, COMBO_END};
 
 combo_t key_combos[] = {
-    [ESC_COMBO]     = COMBO(esc_combo, KC_ESC),
-    [SLSH_COMBO]    = COMBO(slsh_combo, KC_SLASH),
-    [DSH_COMBO]     = COMBO(dsh_combo, KC_MINUS),
-    [EXCL_COMBO]    = COMBO(excl_combo, KC_EXLM),
-    [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
-    [DEL_COMBO]     = COMBO(del_combo, KC_DEL),
-    [RGUI_COMBO]    = COMBO(rgui_combo, KC_RGUI),
-    [BS_COMBO]      = COMBO(bs_combo, KC_BSPC),
-    [ENT_COMBO]     = COMBO(ent_combo, KC_ENT),
+    // [ESC_COMBO]     = COMBO(esc_combo, KC_ESC),
+    // [SLSH_COMBO]    = COMBO(slsh_combo, KC_SLASH),
+    // [DSH_COMBO]     = COMBO(dsh_combo, KC_MINUS),
+    // [EXCL_COMBO]    = COMBO(excl_combo, KC_EXLM),
+    // [EQL_COMBO]     = COMBO(eql_combo, KC_EQL),
+    // [DEL_COMBO]     = COMBO(del_combo, KC_DEL),
+    // [RGUI_COMBO]    = COMBO(rgui_combo, KC_RGUI),
+    // [BS_COMBO]      = COMBO(bs_combo, KC_BSPC),
+    // [ENT_COMBO]     = COMBO(ent_combo, KC_ENT),
 
     // combos or all layers
     [QW_ESC_COMBO]  = COMBO(qw_esc_combo, KC_ESC),
     [TG_RAISE_COMBO]= COMBO(tg_raise_combo, TG_RAI),
-
-    //graphite combos
-    // [GESC_COMBO]     = COMBO(gesc_combo, KC_ESC),
-    // [GSLSH_COMBO]    = COMBO(gslsh_combo, KC_SLASH),
-    // [GDSH_COMBO]     = COMBO(gdsh_combo, KC_MINUS),
-    // [GEXCL_COMBO]    = COMBO(gexcl_combo, KC_EXLM),
-    // [GEQL_COMBO]     = COMBO(geql_combo, KC_EQL),
-    // [GDEL_COMBO]     = COMBO(gdel_combo, KC_DEL),
-    // [GRGUI_COMBO]    = COMBO(grgui_combo, KC_RGUI),
-    // [GENT_COMBO]     = COMBO(gent_combo, KC_ENT),
 
     // semimak combos
     [SESC_COMBO]     = COMBO(sesc_combo, KC_ESC),
@@ -75,6 +58,8 @@ combo_t key_combos[] = {
     [SBS_COMBO]      = COMBO(sbs_combo, KC_BSPC),
     [SLPAR_COMBO]    = COMBO(slpar_combo, KC_LPRN),
     [SRPAR_COMBO]    = COMBO(srpar_combo, KC_RPRN),
+    [SLBRC_COMBO]    = COMBO(slbrc_combo, KC_LBRC),
+    [SRBRC_COMBO]    = COMBO(srbrc_combo, KC_RBRC),
     [SENT_COMBO]     = COMBO(sent_combo, KC_ENT),
 };
 

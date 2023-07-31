@@ -177,7 +177,9 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
             return COMBO_TERM + 10; // 50
         case KC_RPRN:
         case KC_LPRN:
-            return COMBO_TERM + 10;
+        case KC_RBRC:
+        case KC_LBRC:
+            return COMBO_TERM + 40;
         case KC_MINUS:
             return COMBO_TERM - 15;
         case KC_RGUI:
@@ -243,11 +245,11 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
     /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
         switch (combo_index){
             //dvorak combos
-            case ESC_COMBO ... ENT_COMBO:
-                if ((get_highest_layer(layer_state)) == _DVORAK){
-                    return true;
-                }
-                return false;
+            // case ESC_COMBO ... ENT_COMBO:
+            //     if ((get_highest_layer(layer_state)) == _DVORAK){
+            //         return true;
+            //     }
+            //     return false;
             case SESC_COMBO ... SENT_COMBO:
                 if ((get_highest_layer(layer_state)) == _SEMIMAK){
                     return true;
