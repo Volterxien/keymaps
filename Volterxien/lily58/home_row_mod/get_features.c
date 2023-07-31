@@ -36,7 +36,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         // semimak hrm
         case HOME_SN:
         case HOME_SE:
-            return TAPPING_TERM - 20;
+            return TAPPING_TERM - 40;
         default:
             return TAPPING_TERM; 
     }
