@@ -26,10 +26,10 @@ const uint16_t PROGMEM sdsh_combo[] = {KC_SPC, HOME_SE, COMBO_END};
 const uint16_t PROGMEM sdel_combo[] = {KC_M, BS_LOW, COMBO_END};
 const uint16_t PROGMEM srgui_combo[] = {KC_B, KC_COMM, COMBO_END};
 const uint16_t PROGMEM sbs_combo[] = {KC_B, BS_LOW, COMBO_END};
-const uint16_t PROGMEM srpar_combo[] = {KC_V, HOME_ST, COMBO_END};
-const uint16_t PROGMEM slpar_combo[] = {KC_H, HOME_SN, COMBO_END};
-const uint16_t PROGMEM slbrc_combo[] = {KC_M, HOME_ST, COMBO_END};
-const uint16_t PROGMEM srbrc_combo[] = {KC_G, HOME_SD, COMBO_END};
+// const uint16_t PROGMEM srpar_combo[] = {KC_V, HOME_ST, COMBO_END};
+// const uint16_t PROGMEM slpar_combo[] = {KC_H, HOME_SN, COMBO_END};
+// const uint16_t PROGMEM slbrc_combo[] = {KC_M, HOME_ST, COMBO_END};
+// const uint16_t PROGMEM srbrc_combo[] = {KC_G, HOME_SD, COMBO_END};
 const uint16_t PROGMEM sent_combo[] = {KC_B, KC_M, KC_J, COMBO_END};
 
 combo_t key_combos[] = {
@@ -56,10 +56,6 @@ combo_t key_combos[] = {
     [SDEL_COMBO]     = COMBO(sdel_combo, KC_DEL),
     [SRGUI_COMBO]    = COMBO(srgui_combo, KC_RGUI),
     [SBS_COMBO]      = COMBO(sbs_combo, KC_BSPC),
-    [SLPAR_COMBO]    = COMBO(slpar_combo, KC_LPRN),
-    [SRPAR_COMBO]    = COMBO(srpar_combo, KC_RPRN),
-    [SLBRC_COMBO]    = COMBO(slbrc_combo, KC_LBRC),
-    [SRBRC_COMBO]    = COMBO(srbrc_combo, KC_RBRC),
     [SENT_COMBO]     = COMBO(sent_combo, KC_ENT),
 };
 
