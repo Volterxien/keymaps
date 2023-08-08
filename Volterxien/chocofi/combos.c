@@ -18,7 +18,7 @@ const uint16_t PROGMEM qw_esc_combo[] = {KC_Q, KC_W, COMBO_END};
 
 
 //semimak combos
-const uint16_t PROGMEM sesc_combo[] = {KC_F, KC_L, COMBO_END};
+const uint16_t PROGMEM sesc_combo[] = {KC_F, KC_L, KC_H, COMBO_END};
 const uint16_t PROGMEM sslsh_combo[] = {KC_DOT, KC_COMM, COMBO_END};
 const uint16_t PROGMEM sexcl_combo[] = {KC_L, KC_H, COMBO_END};
 const uint16_t PROGMEM seql_combo[] = {KC_J, KC_B, COMBO_END};
@@ -30,7 +30,7 @@ const uint16_t PROGMEM srpar_combo[] = {KC_V, HOME_ST, COMBO_END};
 const uint16_t PROGMEM slpar_combo[] = {KC_H, HOME_SN, COMBO_END};
 const uint16_t PROGMEM slbrc_combo[] = {KC_M, HOME_ST, COMBO_END};
 const uint16_t PROGMEM srbrc_combo[] = {KC_G, HOME_SD, COMBO_END};
-const uint16_t PROGMEM sent_combo[] = {KC_B, KC_M, COMBO_END};
+const uint16_t PROGMEM sent_combo[] = {KC_B, KC_M, KC_J, COMBO_END};
 
 combo_t key_combos[] = {
     // [ESC_COMBO]     = COMBO(esc_combo, KC_ESC),
