@@ -175,11 +175,6 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (combo->keycode) {
         case KC_ESC:
             return COMBO_TERM + 10; // 50
-        case KC_RPRN:
-        case KC_LPRN:
-        case KC_RBRC:
-        case KC_LBRC:
-            return COMBO_TERM + 40;
         case KC_MINUS:
             return COMBO_TERM - 15;
         case KC_RGUI:
@@ -187,7 +182,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case TG_RAI:
             return COMBO_TERM + 40;
         case KC_ENT:
-            return COMBO_TERM + -10;
+            return COMBO_TERM + 10;
         default:
             return COMBO_TERM;
     }
