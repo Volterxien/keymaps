@@ -16,8 +16,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
             return TAPPING_TERM - 65;
         case HOME_A:
         case HOME_S:   
-        case HOME_SS:
-        case HOME_SI:
             return TAPPING_TERM + 30;
         case S_RAISE:
             return TAPPING_TERM + 40;
@@ -36,7 +34,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
         // semimak hrm
         case HOME_SN:
         case HOME_SE:
-            return TAPPING_TERM - 40;
+            return TAPPING_TERM - 55;
+        case HOME_SS:
+        case HOME_SI:
+            return TAPPING_TERM + 30;
         default:
             return TAPPING_TERM; 
     }
@@ -173,16 +174,15 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     // decide by combo->keycode
     switch (combo->keycode) {
+        case KC_ENT:
         case KC_ESC:
             return COMBO_TERM + 10; // 50
         case KC_MINUS:
-            return COMBO_TERM - 15;
+            return COMBO_TERM + 10;
         case KC_RGUI:
             return COMBO_TERM + 20;
         case TG_RAI:
             return COMBO_TERM + 40;
-        case KC_ENT:
-            return COMBO_TERM + 10;
         default:
             return COMBO_TERM;
     }
