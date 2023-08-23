@@ -65,7 +65,7 @@ void leader_end_user(void) {
     }
     // wrap word ()
     if (leader_sequence_one_key(KC_E)){
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) ")" SS_TAP(X_LEFT));
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "(" SS_LCTL(SS_TAP(X_RIGHT)) ")");
     }
     // wrap selection ()
     if (leader_sequence_two_keys(KC_E, KC_E)){
@@ -73,7 +73,7 @@ void leader_end_user(void) {
     }
     // wrap word []
     if (leader_sequence_one_key(KC_U)){
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) "]" SS_TAP(X_LEFT));
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "[" SS_LCTL(SS_TAP(X_RIGHT)) "]");
     }
     // wrap selection []
     if (leader_sequence_two_keys(KC_U, KC_U)){
@@ -81,7 +81,7 @@ void leader_end_user(void) {
     }
     // wrap word {}
     if (leader_sequence_one_key(KC_DOT)){
-        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) "}" SS_TAP(X_LEFT));
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) "{" SS_LCTL(SS_TAP(X_RIGHT)) "}");
     }
     // wrap selection {}
     if (leader_sequence_two_keys(KC_DOT, KC_DOT)){
