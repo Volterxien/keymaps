@@ -68,7 +68,7 @@
 
 enum LAYERS {
   _SEMIMAK = 0,
-  _DVORAK,
+//   _DVORAK,
   _GAME,
   _QWERTY,
   _RAISE,
@@ -118,6 +118,7 @@ enum COMBOS{
     SDEL_COMBO,
     SRGUI_COMBO,
     SBS_COMBO,
+    CBS_COMBO,
     SENT_COMBO,
 
 

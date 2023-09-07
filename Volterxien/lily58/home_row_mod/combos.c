@@ -25,7 +25,9 @@ const uint16_t PROGMEM seql_combo[] = {KC_J, KC_B, COMBO_END};
 const uint16_t PROGMEM sdsh_combo[] = {KC_U, KC_W, COMBO_END};
 const uint16_t PROGMEM sdel_combo[] = {KC_M, BS_LOW, COMBO_END};
 const uint16_t PROGMEM srgui_combo[] = {KC_DOT, KC_COMM, KC_G, COMBO_END};
+const uint16_t PROGMEM ctrlbs_combo[] = {HOME_SD, BS_LOW, COMBO_END};
 const uint16_t PROGMEM sbs_combo[] = {KC_B, BS_LOW, COMBO_END};
+
 // const uint16_t PROGMEM srpar_combo[] = {KC_V, HOME_ST, COMBO_END};
 // const uint16_t PROGMEM slpar_combo[] = {KC_H, HOME_SN, COMBO_END};
 // const uint16_t PROGMEM slbrc_combo[] = {KC_M, HOME_ST, COMBO_END};
@@ -56,6 +58,7 @@ combo_t key_combos[] = {
     [SDEL_COMBO]     = COMBO(sdel_combo, KC_DEL),
     [SRGUI_COMBO]    = COMBO(srgui_combo, KC_RGUI),
     [SBS_COMBO]      = COMBO(sbs_combo, KC_BSPC),
+    [CBS_COMBO]      = COMBO(ctrlbs_combo, LCTL(KC_BSPC)),
     [SENT_COMBO]     = COMBO(sent_combo, KC_ENT),
 };
 

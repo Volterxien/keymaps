@@ -91,33 +91,33 @@ void e_pgdn_reset(tap_dance_state_t *state, void *user_data) {
     e_pgdn_tap_state.state = TD_NONE;
 }
 
-static td_tap_t b_dvorak_tap_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
+// static td_tap_t b_dvorak_tap_state = {
+//     .is_press_action = true,
+//     .state = TD_NONE
+// };
 
 
-void b_dvorak_finished(tap_dance_state_t *state, void *user_data) {
-    b_dvorak_tap_state.state = cur_dance(state);
-    switch (b_dvorak_tap_state.state) {
-        case TD_SINGLE_TAP: register_code(KC_B); break;
-        case TD_SINGLE_HOLD: layer_move(_DVORAK); break;
-        default: break;
-    }
-}
+// void b_dvorak_finished(tap_dance_state_t *state, void *user_data) {
+//     b_dvorak_tap_state.state = cur_dance(state);
+//     switch (b_dvorak_tap_state.state) {
+//         case TD_SINGLE_TAP: register_code(KC_B); break;
+//         case TD_SINGLE_HOLD: layer_move(_DVORAK); break;
+//         default: break;
+//     }
+// }
 
-void b_dvorak_reset(tap_dance_state_t *state, void *user_data) {
-    switch (e_pgdn_tap_state.state) {
-        case TD_SINGLE_TAP: unregister_code(KC_B); break;
-        default: break;
-    }
-    b_dvorak_tap_state.state = TD_NONE;
-}
+// void b_dvorak_reset(tap_dance_state_t *state, void *user_data) {
+//     switch (e_pgdn_tap_state.state) {
+//         case TD_SINGLE_TAP: unregister_code(KC_B); break;
+//         default: break;
+//     }
+//     b_dvorak_tap_state.state = TD_NONE;
+// }
 tap_dance_action_t tap_dance_actions[] = {
     [TD_GTLT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, gt_lt_finished, gt_lt_reset),
     [TD_E_PD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, e_pgdn_finished, e_pgdn_reset),
     [TD_H_PU] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, h_pgup_finished, h_pgup_reset),     
     [TD_INS_PAUSE] = ACTION_TAP_DANCE_DOUBLE(KC_BRK, KC_INS),
-    [TD_B_DVORAK] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, b_dvorak_finished, b_dvorak_reset),    
+    // [TD_B_DVORAK] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, b_dvorak_finished, b_dvorak_reset),    
 
 };
