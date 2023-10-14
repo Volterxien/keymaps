@@ -252,11 +252,11 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
                 return false;
             case TG_RAISE_COMBO:
                 return true;
-            // case QW_ESC_COMBO:
-            //     if ((get_highest_layer(layer_state)) == _QWERTY){
-            //         return true;
-            //     }
-            //     return false; 
+            case QW_ESC_COMBO:
+                if ((get_highest_layer(layer_state)) == _QWERTY){
+                    return true;
+                }
+                return false; 
             // default:
             //     if (((get_highest_layer(layer_state)) == _DVORAK) || (get_highest_layer(layer_state) == _SEMIMAK) || (get_highest_layer(layer_state) == _GRAPHITE)){
             //         return true;

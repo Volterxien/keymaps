@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   9  |  5   |  0   |  3   |  =   |-------.    ,-------|TG_RAI|  2   |  1   |  4   |  8   |      |
  * |------+------+------+------+------+------| Space |    | DVORAK|------+------+------+------+------+------|
- * |      |      |  /   |  -   |  7   |      |-------|    |-------|      |  6   |      |      |      |      |
+ * |      |      |  /   |  -   |  7   |      |-------|    |-------|      |  6   |  ,   |  .   |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   |      |      |bpc/low|/ent/sym/       \tab/rai\   | Space |      |      | 
  *                   |      |      |      |/       /          \      \  |       |      |      |
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
   XXXXXXX, XXXXXXX, LT_GT,   KC_COLN, XXXXXXX, XXXXXXX,                   GRAPH, SEMI, GAMING,  QWERTY,  DVORAK,  XXXXXXX,
   XXXXXXX, KC_9,    KC_5,    KC_0,    KC_3,    KC_EQL,                    TG_RAI,  KC_2,    KC_1,    KC_4,    KC_8,    XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINS, KC_7,    XXXXXXX, KC_SPC,  DVORAK,  XXXXXXX, KC_6,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+  XXXXXXX, XXXXXXX, KC_SLSH, KC_MINS, KC_7,    KC_SPC, KC_SPC,  DVORAK,  XXXXXXX, KC_6,    KC_COMM, KC_DOT,  XXXXXXX, XXXXXXX, 
                              _______, _______, _______, _______, _______, _______, _______, _______
 ),
 // /* RAISE
@@ -220,13 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                         KC_LALT, KC_LGUI, BS_LOW, T_SYMS, E_RAISE, KC_SPC, KC_BSPC, KC_RGUI
  ),
-//  [_GRAPHITE] = LAYOUT(
-//   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX, KC_B, KC_L, KC_D,  KC_W,    KC_Z,                      KC_QUOT,    KC_F,    KC_O,    KC_U,    KC_J,    XXXXXXX,
-//   XXXXXXX, HOME_GN,  HOME_GR,  HOME_GT,  HOME_GS,  KC_G,                      KC_Y,    HOME_GH,  HOME_GA,  HOME_GE,  HOME_GI,  XXXXXXX,
-//   XXXXXXX, KC_Q,    KC_X,    KC_M,    KC_C, KC_V,    XXXXXXX, XXXXXXX, KC_K,    KC_P,    KC_DOT,    KC_COMM,    KC_SCLN,    XXXXXXX,
-//                              XXXXXXX, XXXXXXX, BS_LOW,  T_SYMS,  E_RAISE, KC_SPC,  XXXXXXX, XXXXXXX
-//  ),
+
  [_SEMIMAK] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, KC_F, KC_L, KC_H,  KC_V,    KC_Z,                      KC_QUOT,    KC_W,    KC_U,    KC_O,    KC_Y,    XXXXXXX,

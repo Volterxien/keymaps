@@ -95,6 +95,11 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_L)){
         SEND_STRING(" <= ");
     }
+    // EQ
+    if (leader_sequence_one_key(KC_EQL)){
+        SEND_STRING(" == ");
+    }
+
 
 
 }
