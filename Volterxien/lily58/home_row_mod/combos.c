@@ -58,7 +58,7 @@ combo_t key_combos[] = {
     [SDEL_COMBO]     = COMBO(sdel_combo, KC_DEL),
     [SRGUI_COMBO]    = COMBO(srgui_combo, KC_RGUI),
     [SBS_COMBO]      = COMBO(sbs_combo, KC_BSPC),
-    [CBS_COMBO]      = COMBO(ctrlbs_combo, LCTL(KC_BSPC)),
+    // [CBS_COMBO]      = COMBO(ctrlbs_combo, LCTL(KC_BSPC)),
     [SENT_COMBO]     = COMBO(sent_combo, KC_ENT),
 };
 
