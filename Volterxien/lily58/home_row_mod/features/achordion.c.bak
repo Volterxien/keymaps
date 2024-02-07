@@ -21,6 +21,7 @@
  */
 
 #include "achordion.h"
+#include <codecvt>
 
 
 // Copy of the `record` and `keycode` args for the current active tap-hold key.
@@ -212,6 +213,8 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
     case HOME_U:
     case HOME_SN:
     case HOME_ST:
+    case HOME_SS:
+    case HOME_SR:
       if (other_keycode == KC_MINUS || other_keycode == KC_SLSH || other_keycode == KC_RBRC) { return true; }
       break; 
 

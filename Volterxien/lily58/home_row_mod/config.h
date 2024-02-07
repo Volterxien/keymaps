@@ -62,6 +62,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LEADER_PER_KEY_TIMING
 #define COMBO_SHOULD_TRIGGER
 
+//try streak
+#define ACHORDION_STREAK
 
 
 // #define BILATERAL_COMBINATIONS

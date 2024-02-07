@@ -22,11 +22,11 @@
 
 #include "achordion.h"
 
-#if !defined(IS_QK_MOD_TAP)
+//#if !defined(IS_QK_MOD_TAP)
 // Attempt to detect out-of-date QMK installation, which would fail with
 // implicit-function-declaration errors in the code below.
-#error "achordion: QMK version is too old to build. Please update QMK."
-#else
+//#error "achordion: QMK version is too old to build. Please update QMK."
+//#else
 
 // Copy of the `record` and `keycode` args for the current active tap-hold key.
 static keyrecord_t tap_hold_record;
@@ -260,11 +260,37 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
+
+  switch (tap_hold_keycode) {
+    case HOME_E:
+    case HOME_U:
+    case HOME_SN:
+    case HOME_ST:
+    case HOME_SS:
+    case HOME_SR:
+      if (other_keycode == KC_MINUS || other_keycode == KC_SLSH || other_keycode == KC_RBRC) { return true; }
+      break;
+  }
+
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 // By default, the timeout is 1000 ms for all keys.
 __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  switch(tap_hold_keycode){
+    case E_SYMS:
+    case BS_LOW:
+    case BS_SYMS:
+    case E_LOWER:
+    case S_RAISE:
+    case T_RAISE:
+    case H_PGU:
+    case E_PGD:
+    case LT_GT:
+    case E_RAISE:
+    case T_SYMS:
+    return 0;
+  }
   return 1000;
 }
 
@@ -279,4 +305,4 @@ __attribute__((weak)) uint16_t achordion_streak_timeout(uint16_t tap_hold_keycod
 }
 #endif
 
-#endif  // version check
+//#endif  // version check

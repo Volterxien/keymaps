@@ -267,6 +267,11 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         return true;
 }
 
+//typing streak
+uint16_t achoidon_streak_timeout(uint16_t tap_hold_keycode)
+{
+    return 100;
+}
 
 void housekeeping_task_user(void){
     if (last_input_activity_elapsed() > 5000) {

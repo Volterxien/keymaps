@@ -52,6 +52,8 @@
 #pragma once
 
 #include "quantum.h"
+#include "my_custom_codes.h"
+#define ACHORDION_STREAK
 
 /**
  * Suppress tap-hold mods within a *typing streak* by defining
