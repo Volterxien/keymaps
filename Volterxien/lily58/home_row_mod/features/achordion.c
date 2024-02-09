@@ -271,6 +271,8 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
       if (other_keycode == KC_MINUS || other_keycode == KC_SLSH || other_keycode == KC_RBRC) { return true; }
       break;
   }
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+    return achordion_opposite_hands(tap_hold_record, other_record);
 
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
@@ -301,7 +303,7 @@ __attribute__((weak)) bool achordion_eager_mod(uint8_t mod) {
 
 #ifdef ACHORDION_STREAK
 __attribute__((weak)) uint16_t achordion_streak_timeout(uint16_t tap_hold_keycode) {
-  return 100;  // Default of 100 ms.
+  return 70;  // Default of 100 ms.
 }
 #endif
 
