@@ -11,10 +11,10 @@ void leader_end_user(void) {
         SEND_STRING(" != ");
     }
     if (leader_sequence_one_key(KC_B)) {
-        SEND_STRING("orders.@jacbo.me" SS_LCTL(SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT)) SS_TAP(X_LEFT));
+        SEND_STRING("orders.@jacbo.me" SS_LCTL(SS_TAP(X_LEFT) SS_TAP(X_LEFT)) SS_TAP(X_LEFT));
     }
     if (leader_sequence_one_key(KC_C)) {
-        SEND_STRING("signup.@jacbo.me" SS_LCTL(SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT)) SS_TAP(X_LEFT));
+        SEND_STRING("signup.@jacbo.me" SS_LCTL(SS_TAP(X_LEFT) SS_TAP(X_LEFT)) SS_TAP(X_LEFT));
     }
     if (leader_sequence_one_key(KC_M)) {
         SEND_STRING("jacques.bosse@jacbo.me");
