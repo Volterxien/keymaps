@@ -56,8 +56,12 @@
 #define H_PGU TD(TD_H_PU)
 #define E_PGD TD(TD_E_PD)
 #define LT_GT TD(TD_GTLT)
+
+//Tap dance keys
 #define BRK_INS TD(TD_INS_PAUSE)
-#define B_DVRK TD(TD_B_DVORAK)
+
+
+
 
 //Macros
 #define SEL_LINE_MACRO SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END))
@@ -68,7 +72,6 @@
 
 enum LAYERS {
   _SEMIMAK = 0,
-//   _DVORAK,
   _GAME,
   _QWERTY,
   _RAISE,
@@ -91,6 +94,7 @@ enum CUSTOM_KEYCODES{
     KC_BSDL,
     NOT_EQL,
     PREVDIR,
+    HOMEDIR,
 };
 
 enum COMBOS{
@@ -132,6 +136,7 @@ enum TAP_DANCE{
     TD_H_PU,
     TD_INS_PAUSE,
     TD_B_DVORAK,
+    TD_TILDE_HOME_DIR,
 };
 
 typedef enum {

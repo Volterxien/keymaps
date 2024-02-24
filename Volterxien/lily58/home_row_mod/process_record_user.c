@@ -51,6 +51,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     SEND_STRING("../");
                 }
                 return false;
+            case HOMEDIR:
+                if (record->event.pressed) {
+                    SEND_STRING("~/");
+                }
+                return false;
             case QWERTY:
                 if (record->event.pressed) {
                     layer_move(_QWERTY);
