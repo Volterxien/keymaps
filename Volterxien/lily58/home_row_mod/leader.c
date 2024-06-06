@@ -13,11 +13,14 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_B)) {
         SEND_STRING("orders.@jacbo.me" SS_LCTL(SS_TAP(X_LEFT) SS_TAP(X_LEFT)) SS_TAP(X_LEFT));
     }
-    if (leader_sequence_one_key(KC_C)) {
+    if (leader_sequence_one_key(KC_G)) {
         SEND_STRING("signup.@jacbo.me" SS_LCTL(SS_TAP(X_LEFT) SS_TAP(X_LEFT)) SS_TAP(X_LEFT));
     }
     if (leader_sequence_one_key(KC_M)) {
         SEND_STRING("jacques.bosse@jacbo.me");
+    }
+    if (leader_sequence_one_key(KC_C)) {
+        SEND_STRING(":^)");
     }
     // save vim
     if (leader_sequence_one_key(KC_SCLN)) {
@@ -43,8 +46,12 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_S)) {
         SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_S))));
     }
-    // Sel line
+    // Sel word
     if (leader_sequence_one_key(KC_SPC)){
+        SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_LCTL(SS_LSFT(SS_TAP(X_RIGHT))));
+    }
+    // Sel line
+    if (leader_sequence_two_keys(KC_SPC, KC_SPC)){
         SEND_STRING(SEL_LINE_MACRO);
     }
     // Copy line

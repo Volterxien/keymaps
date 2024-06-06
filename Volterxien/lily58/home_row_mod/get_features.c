@@ -65,6 +65,7 @@ uint16_t get_autoshift_timeout(uint16_t keycode, keyrecord_t *record) {
         case KC_8:
         case KC_9:
         case KC_2:
+        case KC_QUOT:
             return AUTO_SHIFT_TIMEOUT + 10;
         default:
             return get_generic_autoshift_timeout();
